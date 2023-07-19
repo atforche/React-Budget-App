@@ -1,0 +1,8 @@
+<Project>
+    <PropertyGroup>
+        <!-- Override the bin and obj directories for every project in the solution -->
+        <BaseOutputPath>$(ProjectDir)..\bin</BaseOutputPath>
+        <BaseIntermediateOutputPath>$(ProjectDir)..\obj</BaseIntermediateOutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+</Project>
