@@ -1,0 +1,11 @@
+<Project>
+    <PropertyGroup>
+        <!-- Override the bin and obj directories for every project in the solution -->
+        <BaseOutputPath>$(ProjectDir)..\bin\RestApi</BaseOutputPath>
+        <BaseIntermediateOutputPath>$(ProjectDir)..\obj\RestApi</BaseIntermediateOutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+        <!-- Override the publish directory -->
+        <PublishDir>$(ProjectDir)..\run\RestApi</PublishDir>
+    </PropertyGroup>
+</Project>
