@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLine", "CommandLine\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApi", "RestApi\RestApi.csproj", "{C8287A57-4493-4187-B2C1-1678A7CDFDB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{0BE75315-5FB5-4E91-ABCB-C31385BEECF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +25,9 @@ Global
 		{C8287A57-4493-4187-B2C1-1678A7CDFDB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8287A57-4493-4187-B2C1-1678A7CDFDB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8287A57-4493-4187-B2C1-1678A7CDFDB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE75315-5FB5-4E91-ABCB-C31385BEECF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE75315-5FB5-4E91-ABCB-C31385BEECF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE75315-5FB5-4E91-ABCB-C31385BEECF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE75315-5FB5-4E91-ABCB-C31385BEECF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

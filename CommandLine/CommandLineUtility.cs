@@ -8,20 +8,44 @@ namespace CommandLine;
 /// database into an Excel sheet. Also supports uploading a backup file
 /// to OneDrive.
 /// </summary>
-public class CommandLineHelper
+public class CommandLineUtility
 {
+    /// <summary>
+    /// Entry point for the command line utility.
+    /// </summary>
+    /// <param name="args">List of command line arguments</param>
+    /// <returns>The return status code of the application</returns>
     public static int Main(string[] args)
     {
-        var rootCommand = new RootCommand("Budget App Command Line Interface");
-        var excelFileOption = new Option<string>("--file", "Path to the Excel file")
+        RootCommand argumentHandler = ConfigureCommandLineArguments();
+        return argumentHandler.Invoke(args);
+    }
+
+    /// <summary>
+    /// Configures the command line arguments and sets the appropriate handlers.
+    /// </summary>
+    /// <returns>A RootCommand object configured to handle command line input</returns>
+    private static RootCommand ConfigureCommandLineArguments()
+    {
+        var rootCommand = new RootCommand("React Budget App Command Line Interface");
+        var excelFileOption = new Option<string>(
+            "--importFile",
+            "Name of the Excel workbook in the Import directory"
+        )
         {
             IsRequired = true
         };
-        var dbFileOption = new Option<string>("--dbFile", "Path to the database file")
+        var exportFileOption = new Option<string>(
+            "--exportFile",
+            "Filename for the export in the Export directory"
+        )
         {
             IsRequired = true
         };
-        var backupFileOption = new Option<string>("--dest", "Destination path for the backup")
+        var backupFileOption = new Option<string>(
+            "--output",
+            "Filename for the backup file in OneDrive"
+        )
         {
             IsRequired = true
         };
@@ -31,16 +55,14 @@ public class CommandLineHelper
             "Import the contents of a formatted Excel spreadsheet into the SQL Database"
         )
         {
-            excelFileOption,
-            dbFileOption
+            excelFileOption
         };
         importCommand.SetHandler(
-            (excelFilePath, dbFilePath) =>
+            (excelFilePath) =>
             {
-                ErrorHandlingWrapper(() => ImportDataFromFile(excelFilePath, dbFilePath));
+                ErrorHandlingWrapper(() => DataImporter.Execute(excelFilePath));
             },
-            excelFileOption,
-            dbFileOption
+            excelFileOption
         );
         rootCommand.AddCommand(importCommand);
 
@@ -49,8 +71,7 @@ public class CommandLineHelper
             "Export the contents of the SQL Database into a formatted Excel spreadsheet"
         )
         {
-            excelFileOption,
-            dbFileOption
+            exportFileOption
         };
         rootCommand.AddCommand(exportCommand);
 
@@ -61,30 +82,7 @@ public class CommandLineHelper
         };
         rootCommand.AddCommand(backupCommand);
 
-        return rootCommand.Invoke(args);
-    }
-
-    /// <summary>
-    /// Imports data from an Excel file and populate a SQLite database with the data.
-    /// Verifies the file paths are valid.
-    /// </summary>
-    /// <param name="excelFilePath">Path to the formatted Excel file</param>
-    /// <param name="dbFilePath">Path to the SQLite database file</param>
-    /// <exception cref="Exception">
-    /// Throws a generic exception if the file paths are invalid, the Excel file is incorrectly formatted or
-    /// its data is invalid, or the SQL schema is incorrect.
-    /// </exception>
-    private static void ImportDataFromFile(string excelFilePath, string dbFilePath)
-    {
-        if (!File.Exists(excelFilePath))
-        {
-            throw new Exception("Unable to find Excel file at path: \"" + excelFilePath + "\"");
-        }
-        if (!File.Exists(dbFilePath))
-        {
-            throw new Exception("Unable to find DB file at path: \"" + dbFilePath + "\"");
-        }
-        Console.WriteLine("Hello World!");
+        return rootCommand;
     }
 
     /// <summary>
