@@ -1,3 +1,5 @@
+namespace Entities;
+
 /// <summary>
 /// Entity class representing an Actual Income.
 /// Actual Incomes are children of a Month.

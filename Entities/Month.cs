@@ -1,5 +1,7 @@
 using System.Collections;
 
+namespace Entities;
+
 /// <summary>
 /// Entity class representing a Month.
 /// A Month is the parent entity of any data that occurs during a given month.
@@ -41,6 +43,11 @@ public class Month
     /// Navigation to the child Expected Income Rates
     /// </summary>
     public ICollection<ExpectedIncomeRate> ExpectedIncomeRates { get; } = null!;
+
+    /// <summary>
+    /// Navigation to the child Actual Incomes
+    /// </summary>
+    public ICollection<ActualIncome> ActualIncomes { get; } = null;
 
     #endregion
 

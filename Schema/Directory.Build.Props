@@ -1,0 +1,11 @@
+<Project>
+    <PropertyGroup>
+        <!-- Override the bin and obj directories for this project -->
+        <BaseOutputPath>$(ProjectDir)..\bin\$(MSBuildProjectName)</BaseOutputPath>
+        <BaseIntermediateOutputPath>$(ProjectDir)..\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+        <!-- Override the publish directory -->
+        <PublishDir>$(ProjectDir)..\run\$(MSBuildProjectName)</PublishDir>
+    </PropertyGroup>
+</Project>

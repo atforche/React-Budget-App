@@ -1,5 +1,7 @@
 using System;
 
+namespace Entities;
+
 /// <summary>
 /// Entity class representing an Expected Income Date.
 /// Expected Income Dates are children of an Expected Income Rate.

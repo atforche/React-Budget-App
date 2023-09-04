@@ -1,5 +1,7 @@
 using System;
 
+namespace Entities;
+
 /// <summary>
 /// Entity class representing an Account Balance.
 /// Account Balances are children of a Month.

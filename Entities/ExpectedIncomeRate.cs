@@ -1,5 +1,7 @@
 using System.Collections;
 
+namespace Entities;
+
 /// <summary>
 /// Entity class representing an Expected Income Rate.
 /// Expected Income Rates are children of a Month.

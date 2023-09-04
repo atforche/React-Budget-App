@@ -1,5 +1,7 @@
 using System.Collections;
 
+namespace Entities;
+
 /// <summary>
 /// Entity class representing a Budget.
 /// Budgets are children of a Month and the parents of Transactions.

@@ -1,5 +1,7 @@
 using System;
 
+namespace Entities;
+
 /// <summary>
 /// Abstract Entity class representing Income.
 /// Incomes are children of a Month.

@@ -1,5 +1,7 @@
 using System;
 
+namespace Entities;
+
 /// <summary>
 /// Entity class representing a Transaction.
 /// Transactions are children of a Budget.
