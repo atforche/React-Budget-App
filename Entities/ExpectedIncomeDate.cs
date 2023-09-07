@@ -6,6 +6,7 @@ namespace Entities;
 /// Entity class representing an Expected Income Date.
 /// Expected Income Dates are children of an Expected Income Rate.
 /// </summary>
+[ExcelTable(TableName = "Expected.Income.Dates")]
 public class ExpectedIncomeDate
 {
     #region Properties
@@ -18,21 +19,18 @@ public class ExpectedIncomeDate
     /// <summary>
     /// Date of the expected income date
     /// </summary>
+    [ExcelColumn(ColumnName = "Date")]
     public DateTime Date { get; set; }
-
-    /// <summary>
-    /// Employer Name of the expected income date
-    /// </summary>
-    public string Employer { get; set; } = null!;
 
     #endregion
 
     #region Navigations
 
     /// <summary>
-    /// Navigation to the parent Expected Income Rate
+    /// Navigation to the parent Employer
     /// </summary>
-    public ExpectedIncomeRate ExpectedIncomeRate { get; } = null!;
+    [ExcelColumn(ColumnName = "Employer")]
+    public Employer Employer { get; } = null!;
 
     #endregion
 

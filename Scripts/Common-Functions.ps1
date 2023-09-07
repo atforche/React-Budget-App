@@ -8,8 +8,8 @@ function Test-Administrator
 }
 
 <#  .Description 
-    Publishes the RestApi project and starts the React-Budget-API service that hosts the API.
-    If the service doesn't already exist, it will be created (requires Administrator priviledges).
+    Publishes the RestApi project and starts the React-Budget-API service that hosts the API 
+    (requires Administrator priviledges). If the service doesn't already exist, it will be created.
 #>  
 function Publish-API
 {
@@ -19,14 +19,14 @@ function Publish-API
     $restApiPort = 5000
     $restApiUrl = "http://localhost:$restApiPort"
 
-    # Check if the service already exists. If it doesn't, we need administrator permissions to create it
-    $serviceExists = (Get-Service -Name $restApiServiceName -ErrorAction SilentlyContinue).Length -gt 0
+    # Make sure we have administrator permissions, which is needed for this command
     if (!(Test-Administrator))
     {
         throw "The React-Budget-API service does not currently exist. Adminstrator priviledges are required to create it."
     }
 
     # If the service already exists, make sure that it is stopped
+    $serviceExists = (Get-Service -Name $restApiServiceName -ErrorAction SilentlyContinue).Length -gt 0
     if ($serviceExists)
     {
         Write-Output "Stopping Services..."

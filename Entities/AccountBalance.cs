@@ -6,6 +6,7 @@ namespace Entities;
 /// Entity class representing an Account Balance.
 /// Account Balances are children of a Month.
 /// </summary>
+[ExcelTable(TableName = "Balances")]
 public class AccountBalance
 {
     #region Properties
@@ -23,16 +24,25 @@ public class AccountBalance
     /// <summary>
     /// Account Name of the account balance
     /// </summary>
+    [ExcelColumn(ColumnName = "Name")]
     public string AccountName { get; set; } = null!;
 
     /// <summary>
     /// Account Type of the account balance
     /// </summary>
+    [ExcelColumn(ColumnName = "Category")]
     public AccountType AccountType { get; set; }
 
     /// <summary>
     /// Amount of the account balance
     /// </summary>
+    [
+        ExcelColumn(ColumnName = "First Monday"),
+        ExcelColumn(ColumnName = "Second Monday"),
+        ExcelColumn(ColumnName = "Third Monday"),
+        ExcelColumn(ColumnName = "Fourth Monday"),
+        ExcelColumn(ColumnName = "Fifth Monday")
+    ]
     public decimal Amount { get; set; }
 
     #endregion

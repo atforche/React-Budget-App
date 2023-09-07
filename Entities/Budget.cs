@@ -6,6 +6,7 @@ namespace Entities;
 /// Entity class representing a Budget.
 /// Budgets are children of a Month and the parents of Transactions.
 /// </summary>
+[ExcelTable(TableName = "Budgets")]
 public class Budget
 {
     #region Properties
@@ -18,21 +19,28 @@ public class Budget
     /// <summary>
     /// Name of the budget
     /// </summary>
+    [ExcelColumn(ColumnName = "Name")]
     public string Name { get; set; } = null!;
 
     /// <summary>
     /// Type of the budget
     /// </summary>
+    [ExcelColumn(ColumnName = "Type")]
     public BudgetType BudgetType { get; set; }
 
     /// <summary>
     /// Amount of the budget
     /// </summary>
+    [ExcelColumn(ColumnName = "Amount")]
     public decimal Amount { get; set; }
 
     /// <summary>
     /// For rolling budgets, the amount rolled over from the previous month
     /// </summary>
+    [
+        ExcelColumn(ColumnName = "Rollover From Last Month"),
+        ExcelColumn(ColumnName = "Override Rollover Amount")
+    ]
     public decimal? RolloverAmount { get; set; }
 
     /// <summary>

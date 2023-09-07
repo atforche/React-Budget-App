@@ -6,6 +6,7 @@ namespace Entities;
 /// Entity class representing an Expected Income Rate.
 /// Expected Income Rates are children of a Month.
 /// </summary>
+[ExcelTable(TableName = "Expected.Income.Rates")]
 public class ExpectedIncomeRate : Income
 {
     #region Properties
@@ -18,21 +19,14 @@ public class ExpectedIncomeRate : Income
     /// <summary>
     /// Percentage representing the Retirement Contributions of the expected income rate
     /// </summary>
+    [ExcelColumn(ColumnName = "Retirement Contribution Rate")]
     public decimal RetirementContributionRate { get; set; }
 
     /// <summary>
     /// Percentage representing the Tax Rate of this expected income rate
     /// </summary>
+    [ExcelColumn(ColumnName = "Tax Rate")]
     public decimal TaxRate { get; set; }
-
-    #endregion
-
-    #region Navigations
-
-    /// <summary>
-    /// Navigation to the children Expected Income Dates
-    /// </summary>
-    public ICollection<ExpectedIncomeDate> ExpectedIncomeDates { get; } = null!;
 
     #endregion
 

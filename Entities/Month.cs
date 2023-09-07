@@ -40,14 +40,9 @@ public class Month
     public ICollection<AccountBalance> AccountBalances { get; } = null!;
 
     /// <summary>
-    /// Navigation to the child Expected Income Rates
+    /// Navigation to the child Employers
     /// </summary>
-    public ICollection<ExpectedIncomeRate> ExpectedIncomeRates { get; } = null!;
-
-    /// <summary>
-    /// Navigation to the child Actual Incomes
-    /// </summary>
-    public ICollection<ActualIncome> ActualIncomes { get; } = null;
+    public ICollection<Employer> Employers { get; } = null!;
 
     #endregion
 
