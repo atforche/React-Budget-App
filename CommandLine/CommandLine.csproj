@@ -11,6 +11,11 @@
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 
+  <!-- Local project inclusions -->
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj"/>
+  </ItemGroup>
+
   <!-- Nuget Packages -->
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1"/>

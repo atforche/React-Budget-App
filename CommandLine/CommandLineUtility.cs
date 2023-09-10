@@ -60,7 +60,8 @@ public class CommandLineUtility
         importCommand.SetHandler(
             (excelFilePath) =>
             {
-                ErrorHandlingWrapper(() => DataImporter.Execute(excelFilePath));
+                var dataImporter = new DataImporter();
+                ErrorHandlingWrapper(() => dataImporter.Execute(excelFilePath));
             },
             excelFileOption
         );

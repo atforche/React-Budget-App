@@ -4,48 +4,65 @@ namespace Entities;
 /// Excel Table annotation used to designate entity classes
 /// that map to Excel tables
 /// </summary>
-[System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = false)]
-public class ExcelTableAttribute : System.Attribute
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+public class ExcelTableAttribute : Attribute
 {
     #region Properties
 
     /// <summary>
     /// Excel table name of this entity class
     /// </summary>
-    public string TableName { get; set; }
+    public string TableName { get; set; } = null!;
 
     #endregion
 
-    /// <summary>
-    /// Constructs a new instance of this attribute
-    /// </summary>
-    public ExcelTableAttribute(string tableName)
+    #region Methods
+
+    /// <inheritdoc/>
+    public override int GetHashCode()
     {
-        TableName = tableName;
+        return TableName.GetHashCode();
     }
+
+    /// <inheritdoc/>
+    public override bool Equals(object? obj)
+    {
+        return obj is ExcelTableAttribute tableAttribute && tableAttribute.TableName == TableName;
+    }
+
+    #endregion
 }
 
 /// <summary>
 /// Excel Column annotation used to designate entity properties
 /// that map to columns in an Excel table.
 /// </summary>
-[System.AttributeUsage(System.AttributeTargets.Property, AllowMultiple = true)]
-public class ExcelColumnAttribute : System.Attribute
+[AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
+public class ExcelColumnAttribute : Attribute
 {
     #region Properties
 
     /// <summary>
     /// Excel column name of this property
     /// </summary>
-    public string ColumnName { get; set; }
+    public string ColumnName { get; set; } = null!;
 
     #endregion
 
-    /// <summary>
-    /// Constructs a new instance of this attribute
-    /// </summary>
-    public ExcelColumnAttribute(string columnName)
+    #region Methods
+
+    /// <inheritdoc/>
+    public override int GetHashCode()
     {
-        ColumnName = columnName;
+        return ColumnName.GetHashCode();
     }
+
+    /// <inheritdoc/>
+    public override bool Equals(object? obj)
+    {
+        return obj is ExcelColumnAttribute columnAttribute
+            && columnAttribute.ColumnName == ColumnName;
+    }
+
+    #endregion
 }
