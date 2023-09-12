@@ -1,0 +1,19 @@
+<Project>
+    <!-- Define the output directories for Building and Publishing -->
+    <PropertyGroup>
+        <BuildOutputPath>$(MSBuildProjectDirectory)\..\bin</BuildOutputPath>
+        <BuildIntermediateOutputPath>$(MSBuildProjectDirectory)\..\obj</BuildIntermediateOutputPath>
+        <PublishOutputPath>$(MSBuildProjectDirectory)\..\run</PublishOutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- Override the bin and obj directories for building the solution -->
+        <OutputPath>$(BuildOutputPath)\$(MSBuildProjectName)</OutputPath>
+        <BaseIntermediateOutputPath>$(BuildIntermediateOutputPath)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+        <IntermediateOutputPath>$(BuildIntermediateOutputPath)\$(MSBuildProjectName)</IntermediateOutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+        <!-- Override the publish directory for publishing the solution -->
+        <PublishDir>$(PublishOutputPath)\$(MSBuildProjectName)</PublishDir>
+    </PropertyGroup>
+</Project>

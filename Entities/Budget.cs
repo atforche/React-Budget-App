@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace Entities;
 
 /// <summary>
@@ -37,10 +35,8 @@ public class Budget
     /// <summary>
     /// For rolling budgets, the amount rolled over from the previous month
     /// </summary>
-    [
-        ExcelColumn(ColumnName = "Rollover From Last Month"),
-        ExcelColumn(ColumnName = "Override Rollover Amount")
-    ]
+    [ExcelColumn(ColumnName = "Rollover From Last Month")]
+    [ExcelColumn(ColumnName = "Override Rollover Amount")]
     public decimal? RolloverAmount { get; set; }
 
     /// <summary>

@@ -1,5 +1,3 @@
-using System;
-
 namespace Entities;
 
 /// <summary>
@@ -36,13 +34,11 @@ public class AccountBalance
     /// <summary>
     /// Amount of the account balance
     /// </summary>
-    [
-        ExcelColumn(ColumnName = "First Monday"),
-        ExcelColumn(ColumnName = "Second Monday"),
-        ExcelColumn(ColumnName = "Third Monday"),
-        ExcelColumn(ColumnName = "Fourth Monday"),
-        ExcelColumn(ColumnName = "Fifth Monday")
-    ]
+    [ExcelColumn(ColumnName = "First Monday")]
+    [ExcelColumn(ColumnName = "Second Monday")]
+    [ExcelColumn(ColumnName = "Third Monday")]
+    [ExcelColumn(ColumnName = "Fourth Monday")]
+    [ExcelColumn(ColumnName = "Fifth Monday")]
     public decimal Amount { get; set; }
 
     #endregion
@@ -61,6 +57,9 @@ public class AccountBalance
     #endregion
 }
 
+/// <summary>
+/// Enum representing the different types of accounts
+/// </summary>
 public enum AccountType
 {
     Spending,

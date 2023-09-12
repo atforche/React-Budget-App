@@ -1,8 +1,7 @@
 namespace Entities;
 
 /// <summary>
-/// Excel Table annotation used to designate entity classes
-/// that map to Excel tables
+/// Excel Table annotation used to designate entity classes that map to Excel tables
 /// </summary>
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
 public class ExcelTableAttribute : Attribute
@@ -34,8 +33,7 @@ public class ExcelTableAttribute : Attribute
 }
 
 /// <summary>
-/// Excel Column annotation used to designate entity properties
-/// that map to columns in an Excel table.
+/// Excel Column annotation used to designate entity properties that map to columns in an Excel table.
 /// </summary>
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
 public class ExcelColumnAttribute : Attribute
@@ -60,8 +58,7 @@ public class ExcelColumnAttribute : Attribute
     /// <inheritdoc/>
     public override bool Equals(object? obj)
     {
-        return obj is ExcelColumnAttribute columnAttribute
-            && columnAttribute.ColumnName == ColumnName;
+        return obj is ExcelColumnAttribute columnAttribute && columnAttribute.ColumnName == ColumnName;
     }
 
     #endregion

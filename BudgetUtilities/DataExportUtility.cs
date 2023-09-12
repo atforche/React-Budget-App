@@ -1,9 +1,10 @@
-namespace CommandLine;
+namespace BudgetUtilities;
 
 /// <summary>
-/// Class that manages uploading a local file to a specific folder in OneDrive.
+/// Class that manages exporting data from the database and exporting it into
+/// an Excel file.
 /// </summary>
-public class BackupUtility
+public class DataExportUtility
 {
     #region Fields
 

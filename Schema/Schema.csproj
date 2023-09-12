@@ -8,7 +8,7 @@
     <Nullable>enable</Nullable>    
   </PropertyGroup>
 
-  <!-- Project References -->
+  <!-- Local Project References -->
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>

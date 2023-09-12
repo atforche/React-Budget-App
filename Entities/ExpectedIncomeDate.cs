@@ -1,5 +1,3 @@
-using System;
-
 namespace Entities;
 
 /// <summary>
@@ -29,7 +27,6 @@ public class ExpectedIncomeDate
     /// <summary>
     /// Navigation to the parent Employer
     /// </summary>
-    [ExcelColumn(ColumnName = "Employer")]
     public Employer Employer { get; } = null!;
 
     #endregion

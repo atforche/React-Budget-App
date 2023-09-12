@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace Entities;
 
 /// <summary>
@@ -7,11 +5,9 @@ namespace Entities;
 /// Employers are children of a Month and parents to Expected Income Rates,
 /// Expected Income Dates, and Actual Incomes.
 /// </summary>
-[
-    ExcelTable(TableName = "Actual.Income"),
-    ExcelTable(TableName = "Expected.Income.Dates"),
-    ExcelTable(TableName = "Expected.Income.Rates")
-]
+[ExcelTable(TableName = "Actual.Income")]
+[ExcelTable(TableName = "Expected.Income.Dates")]
+[ExcelTable(TableName = "Expected.Income.Rates")]
 public class Employer
 {
     #region Properties

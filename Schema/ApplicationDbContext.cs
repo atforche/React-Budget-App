@@ -7,7 +7,7 @@ public class ApplicationDbContext : DbContext
 {
     #region Properties
 
-    public DbSet<Month> Months { get; set; }
+    public DbSet<Month> Months { get; set; } = null!;
 
     #endregion
 

@@ -1,5 +1,3 @@
-using System;
-
 namespace Entities;
 
 /// <summary>
@@ -35,7 +33,6 @@ public abstract class Income
     /// <summary>
     /// Navigation to the parent Employer
     /// </summary>
-    [ExcelColumn(ColumnName = "Employer")]
     public Employer Employer { get; } = null!;
 
     #endregion
