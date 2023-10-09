@@ -1,19 +1,19 @@
 <Project>
-    <!-- Define the output directories for Building and Publishing -->
-    <PropertyGroup>
-        <BuildOutputPath>$(MSBuildProjectDirectory)\..\bin</BuildOutputPath>
-        <BuildIntermediateOutputPath>$(MSBuildProjectDirectory)\..\obj</BuildIntermediateOutputPath>
-        <PublishOutputPath>$(MSBuildProjectDirectory)\..\run</PublishOutputPath>
-    </PropertyGroup>
-
     <PropertyGroup>
         <!-- Override the bin and obj directories for building the solution -->
-        <OutputPath>$(BuildOutputPath)\$(MSBuildProjectName)</OutputPath>
-        <BaseIntermediateOutputPath>$(BuildIntermediateOutputPath)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
-        <IntermediateOutputPath>$(BuildIntermediateOutputPath)\$(MSBuildProjectName)</IntermediateOutputPath>
+        <OutputPath>..\Build\bin\$(MSBuildProjectName)</OutputPath>
+        <IntermediateOutputPath>..\Build\obj\$(MSBuildProjectName)</IntermediateOutputPath>
+        <BaseIntermediateOutputPath>..\Build\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 
         <!-- Override the publish directory for publishing the solution -->
-        <PublishDir>$(PublishOutputPath)\$(MSBuildProjectName)</PublishDir>
+        <PublishDir>..\Build\publish\$(MSBuildProjectName)</PublishDir>
     </PropertyGroup>
+
+    <!-- Item groups containing all the build and publish files -->
+    <ItemGroup>
+        <BuildBinFiles Include="$(OutputPath)\**\*.*" />
+        <BuildObjFiles Include="$(BaseIntermediateOutputPath)\**\*.*" />
+        <PublishFiles Include="$(PublishDir)\**\*.*" />
+  </ItemGroup>
 </Project>

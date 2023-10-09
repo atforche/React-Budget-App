@@ -1,0 +1,24 @@
+// This is only a sample configuration file. To set up the configuration, rename this file to config.json and 
+// set up the file as needed
+{
+    "AppDirectory":
+    {
+        "Local": "C:\\Code\\React Budget App\\Local",
+        "Published": "C:\\Code\\React Budget App\\Published"
+    },
+    "RestApiServiceName":
+    {
+        "Local": "React Budget API Local",
+        "Published": "React Budget API Published"
+    },
+    "RestApiPort":
+    {
+        "Local": 5005,
+        "Published": 5000
+    },
+    "RestApiUrl":
+    {
+        "Local": "http://localhost",
+        "Published": "http://localhost"
+    }
+}

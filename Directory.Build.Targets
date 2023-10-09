@@ -1,0 +1,43 @@
+<Project>
+    <!-- 
+        Creates the local app directory and needed folder structure at the path specified in the config.
+        Copies the build files from the output directory to the local app directory.
+    -->
+    <Target Name="MakeLocalDirectory" AfterTargets="Build">
+        <!-- Determine the local app directory -->
+        <Exec Command="python ..\Scripts\Scripts.py Get-Config --name AppDirectory" ConsoleToMSBuild="true" StandardOutputImportance="low">
+            <Output TaskParameter="ConsoleOutput" PropertyName="LocalAppDirectory" />
+        </Exec>
+
+        <!-- Create the needed folders -->
+        <MakeDir Directories="$(LocalAppDirectory)" Condition="!Exists('$(LocalAppDirectory)')"  />
+        <MakeDir Directories="$(LocalAppDirectory)\Import" Condition="!Exists('$(LocalAppDirectory)\Import')"/>
+        <MakeDir Directories="$(LocalAppDirectory)\Export" Condition="!Exists('$(LocalAppDirectory)\Export')"/>
+
+        <!-- Copy the build files -->
+        <RemoveDir Directories="$(LocalAppDirectory)\bin\$(MSBuildProjectName)"/>
+        <Copy SourceFiles="@(BuildBinFiles)" DestinationFolder="$(LocalAppDirectory)\bin\$(MSBuildProjectName)\%(RecursiveDir)"/>
+        <RemoveDir Directories="$(LocalAppDirectory)\obj\$(MSBuildProjectName)"/>
+        <Copy SourceFiles="@(BuildObjFiles)" DestinationFolder="$(LocalAppDirectory)\obj\$(MSBuildProjectName)\%(RecursiveDir)"/>
+    </Target>
+
+    <!-- 
+        Creates the published app directory and needed folder structure at the path specified in the config.
+        Copies the build files from the output directory to the publish app directory.  
+    -->
+    <Target Name="MakePublishDirectory" AfterTargets="Publish">
+        <!-- Determine the publish app directory -->
+        <Exec Command="python ..\Scripts\Scripts.py Get-Config --name AppDirectory --published" ConsoleToMSBuild="true" StandardOutputImportance="low">
+            <Output TaskParameter="ConsoleOutput" PropertyName="PublishAppDirectory" />
+        </Exec>
+
+        <!-- Create the needed folders -->
+        <MakeDir Directories="$(PublishAppDirectory)" Condition="!Exists('$(PublishAppDirectory)')"  />
+        <MakeDir Directories="$(PublishAppDirectory)\Import" Condition="!Exists('$(PublishAppDirectory)\Import')"/>
+        <MakeDir Directories="$(PublishAppDirectory)\Export" Condition="!Exists('$(PublishAppDirectory)\Export')"/>
+
+        <!-- Copy the build files -->
+        <RemoveDir Directories="$(PublishAppDirectory)\bin\$(MSBuildProjectName)"/>
+        <Copy SourceFiles="@(PublishFiles)" DestinationFolder="$(PublishAppDirectory)\bin\$(MSBuildProjectName)\%(RecursiveDir)"/>
+    </Target>
+</Project>

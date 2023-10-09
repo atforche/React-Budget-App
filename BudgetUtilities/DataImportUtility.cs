@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Reflection;
+using Configuration;
 using Entities;
 using NPOI.XSSF.UserModel;
 
@@ -13,12 +14,6 @@ namespace BudgetUtilities;
 public class DataImportUtility : IDisposable
 {
     #region Fields
-
-    /// <summary>
-    /// Path to the directory where any import files will be located.
-    /// </summary>
-    private static readonly string ImportDirectoryPath =
-        AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\Import\\";
 
     private FileStream? fileStream;
 
@@ -69,7 +64,7 @@ public class DataImportUtility : IDisposable
     public XSSFWorkbook ImportWorkbook()
     {
         // Verify that the file exists
-        string fullPath = ImportDirectoryPath + ExcelFileName;
+        string fullPath = AppConfiguration.AppDirectory + ExcelFileName;
         if (!File.Exists(fullPath))
         {
             throw new Exception($"Unable to find Excel workbook in Import directory: \"{ExcelFileName}\"");

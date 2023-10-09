@@ -13,6 +13,7 @@
 
   <!-- Local Project References -->
   <ItemGroup>
+    <ProjectReference Include="..\Configuration\Configuration.csproj"/>
     <ProjectReference Include="..\Entities\Entities.csproj"/>
   </ItemGroup>
 
@@ -21,14 +22,5 @@
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1"/>
     <PackageReference Include="NPOI" Version="2.6.1"/>
   </ItemGroup>
-
-  <!-- Deploy the application on a publish -->
-  <Target Name="PublishDeploy" AfterTargets="Publish">
-    <Exec Command='"$(PublishOutputPath)\$(MSBuildProjectName)\$(MSBuildProjectName).exe" deploy --directory "$(PublishOutputPath)" --publish' />
-  </Target>
-
-  <!-- Deploy the application on a regular build -->
-  <Target Name="BuildDeploy" AfterTargets="PostBuildEvent">
-        <Exec Command='"$(BuildOutputPath)\$(MSBuildProjectName)\$(MSBuildProjectName).exe" deploy --directory "$(BuildOutputPath)' />
-  </Target>
+  
 </Project>

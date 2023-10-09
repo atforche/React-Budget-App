@@ -68,25 +68,6 @@ public class CommandLineUtility
         };
         rootCommand.AddCommand(backupCommand);
 
-        // Deploy Command
-        var deployDirectoryOption = new Option<string>("--directory",
-            "Parent directory the application is being deployed to")
-        {
-            IsRequired = true
-        };
-        var publishOption = new Option<bool>("--publish", "If set, indicates that the current deployment is a publish.");
-        var deployCommand = new Command("deploy", "Perform steps needed to deploy application to a given folder")
-        {
-            deployDirectoryOption,
-            publishOption
-        };
-        deployCommand.SetHandler(
-            (deployDirectory, publish) => ErrorHandlingWrapper(() =>
-                new DeployUtility(deployDirectory, publish).DeployApplication()),
-            deployDirectoryOption,
-            publishOption);
-        rootCommand.AddCommand(deployCommand);
-
         return rootCommand;
     }
 

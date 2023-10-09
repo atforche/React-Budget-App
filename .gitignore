@@ -1,6 +1,7 @@
 .vscode
 .config
-bin
-obj
+Build
 run
 Import/*
+config.json
+*.pyc
