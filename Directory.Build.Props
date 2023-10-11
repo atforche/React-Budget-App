@@ -9,11 +9,4 @@
         <!-- Override the publish directory for publishing the solution -->
         <PublishDir>..\Build\publish\$(MSBuildProjectName)</PublishDir>
     </PropertyGroup>
-
-    <!-- Item groups containing all the build and publish files -->
-    <ItemGroup>
-        <BuildBinFiles Include="$(OutputPath)\**\*.*" />
-        <BuildObjFiles Include="$(BaseIntermediateOutputPath)\**\*.*" />
-        <PublishFiles Include="$(PublishDir)\**\*.*" />
-  </ItemGroup>
 </Project>

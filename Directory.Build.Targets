@@ -4,6 +4,12 @@
         Copies the build files from the output directory to the local app directory.
     -->
     <Target Name="MakeLocalDirectory" AfterTargets="Build">
+        <!-- Item groups containing all of the build files -->
+        <ItemGroup>
+            <BuildBinFiles Include="$(OutputPath)\**\*.*" />
+            <BuildObjFiles Include="$(BaseIntermediateOutputPath)\**\*.*" />
+        </ItemGroup>
+
         <!-- Determine the local app directory -->
         <Exec Command="python ..\Scripts\Scripts.py Get-Config --name AppDirectory" ConsoleToMSBuild="true" StandardOutputImportance="low">
             <Output TaskParameter="ConsoleOutput" PropertyName="LocalAppDirectory" />
@@ -26,6 +32,11 @@
         Copies the build files from the output directory to the publish app directory.  
     -->
     <Target Name="MakePublishDirectory" AfterTargets="Publish">
+        <!-- Item group containing all of the publish files -->
+        <ItemGroup>
+            <PublishFiles Include="$(PublishDir)\**\*.*" />
+        </ItemGroup>
+
         <!-- Determine the publish app directory -->
         <Exec Command="python ..\Scripts\Scripts.py Get-Config --name AppDirectory --published" ConsoleToMSBuild="true" StandardOutputImportance="low">
             <Output TaskParameter="ConsoleOutput" PropertyName="PublishAppDirectory" />

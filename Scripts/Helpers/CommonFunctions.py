@@ -43,6 +43,9 @@ class CommonFunctions():
         # If the services exists, make sure they are stopped
         self.stop_services(published_version)
 
+        # Run a clean to remove any build artifacts
+        subprocess.run(["dotnet", "clean", "--nologo", "-v", "q"], check=True)
+
         # Build / Publish the solution
         if published_version:
             print("Publishing Solution...")
