@@ -5,8 +5,8 @@ namespace BudgetUtilities;
 /// <summary>
 /// Helper class to manage command line input. Supports importing data
 /// from an Excel sheet into the SQL database, exporting data from the SQL
-/// database into an Excel sheet, and uploading a backup file
-/// to OneDrive. Can also configure environment variables as a Post-Build event.
+/// database into an Excel sheet, verifying an exported Excel sheet,
+/// and uploading a backup file to OneDrive.
 /// </summary>
 public class CommandLineUtility
 {
@@ -55,6 +55,14 @@ public class CommandLineUtility
             exportFileOption
         };
         rootCommand.AddCommand(exportCommand);
+
+        // Verify Export Command
+        var verifyExportCommand = new Command("verify-export",
+            "Verifies that the content of the provided export file match the current state of the database")
+        {
+            exportFileOption
+        };
+        rootCommand.AddCommand(verifyExportCommand);
 
         // Backup Command
         var backupFileOption = new Option<string>("--output", "Filename for the backup file in OneDrive")
