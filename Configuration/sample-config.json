@@ -3,22 +3,22 @@
 {
     "AppDirectory":
     {
-        "Local": "C:\\Code\\React Budget App\\Local",
+        "Test": "C:\\Code\\React Budget App\\Test",
         "Published": "C:\\Code\\React Budget App\\Published"
     },
     "RestApiServiceName":
     {
-        "Local": "React Budget API Local",
+        "Test": "React Budget API Test",
         "Published": "React Budget API Published"
     },
     "RestApiPort":
     {
-        "Local": 5005,
+        "Test": 5005,
         "Published": 5000
     },
     "RestApiUrl":
     {
-        "Local": "http://localhost",
+        "Test": "http://localhost",
         "Published": "http://localhost"
     }
 }

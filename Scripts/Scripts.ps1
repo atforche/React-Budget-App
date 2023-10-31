@@ -1,13 +1,13 @@
 <#  .Description 
-    Builds the solution and deploys the new local version
+    Builds the solution and deploys the new test version
 #>  
-function Deploy-Local-Version
+function Deploy-Test-Version
 {
     python $PSScriptRoot\Scripts.py Deploy
 }
 
 <#  .Description 
-    Builds the solution, deploys the new local version, then publishes the new version
+    Builds the solution, deploys the new test version, then publishes the new version
 #>  
 function Deploy-Published-Version
 {

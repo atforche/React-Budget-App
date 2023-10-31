@@ -51,7 +51,7 @@ public static class AppConfiguration
             currentConfiguration?.AppDirectory?.Published ?? throw new InvalidOperationException());
         AppDirectory = IsPublished
             ? currentConfiguration?.AppDirectory?.Published ?? throw new InvalidOperationException()
-            : currentConfiguration?.AppDirectory?.Local ?? throw new InvalidOperationException();
+            : currentConfiguration?.AppDirectory?.Test ?? throw new InvalidOperationException();
     }
 
     /// <summary>
@@ -68,9 +68,9 @@ public static class AppConfiguration
             {
                 throw new Exception($"Configuration setting \"{propertyInfo.Name}\" is not provided.");
             }
-            if (setting.Local == null)
+            if (setting.Test == null)
             {
-                throw new Exception($"Local setting for \"{propertyInfo.Name}\" is not provided.");
+                throw new Exception($"Test setting for \"{propertyInfo.Name}\" is not provided.");
             }
             if (setting.Published == null)
             {

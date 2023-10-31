@@ -28,7 +28,7 @@ class LinuxFunctions(CommonFunctions):
     Checks whether the service currently exists.
 
     Args:
-        published_version: True to check for the published service, false to check for the local service.
+        published_version: True to check for the published service, false to check for the test service.
 
     Returns:
         True if the service exists, false otherwise
@@ -41,7 +41,7 @@ class LinuxFunctions(CommonFunctions):
     Creates an individual application service.
 
     Args:
-        published_version: If True, create the published service. Otherwise, create the local service.
+        published_version: If True, create the published service. Otherwise, create the test service.
     """
     def create_service(self, published_version: bool):
         raise NotImplemented()
@@ -51,7 +51,7 @@ class LinuxFunctions(CommonFunctions):
     Stops an individual application service.
 
     Args:
-        published_version: If True, stop the published service. Otherwise, stop the local service.
+        published_version: If True, stop the published service. Otherwise, stop the test service.
     """
     def stop_service(self, published_version: bool):
         raise NotImplemented()
@@ -61,7 +61,7 @@ class LinuxFunctions(CommonFunctions):
     Starts an individual application service.
 
     Args:
-        published_version: If True, start the published service. Otherwise, start the local service.
+        published_version: If True, start the published service. Otherwise, start the test service.
     """
     def start_service(self, published_version: bool):
         raise NotImplemented()

@@ -31,10 +31,10 @@ class CommonFunctions():
 
 
     """
-    Deploys either the local or published version of the software.
+    Deploys either the test or published version of the software.
 
     Args:
-        published_version: If True, deploy the local version and then publish it. Otherwise, just deploy the local version.
+        published_version: If True, deploy the test version and then publish it. Otherwise, just deploy the test version.
     """
     def deploy_version(self, published_version: bool):
         # Verify that we have the correct permissions
@@ -72,7 +72,7 @@ class CommonFunctions():
     Checks whether the service currently exists.
 
     Args:
-        published_version: True to check for the published service, false to check for the local service.
+        published_version: True to check for the published service, false to check for the test service.
 
     Returns:
         True if the service exists, false otherwise
@@ -85,7 +85,7 @@ class CommonFunctions():
     Creates the application services if they don't exist.
 
     Args:
-        published_version: If True, create both the published and local services. Otherwise, just create the local service.
+        published_version: If True, create both the published and test services. Otherwise, just create the test service.
     """
     def create_services(self, published_version: bool):
         # Create the published service if needed and it doesn't exist
@@ -93,7 +93,7 @@ class CommonFunctions():
             print(f"Creating Service: {self.get_config_setting('RestApiServiceName', True)}...")
             self.create_service(True)
 
-        # Create the local service if it doesn't exist
+        # Create the test service if it doesn't exist
         if not self.does_service_exist(False):
             print(f"Creating Service: {self.get_config_setting('RestApiServiceName', False)}...")
             self.create_service(False)
@@ -103,7 +103,7 @@ class CommonFunctions():
     Creates an individual application service.
 
     Args:
-        published_version: If True, create the published service. Otherwise, create the local service.
+        published_version: If True, create the published service. Otherwise, create the test service.
     """
     def create_service(self, service_name: str):
         raise PlatformSpecificException()
@@ -113,7 +113,7 @@ class CommonFunctions():
     Stops the application services if they are currently running.
 
     Args:
-        published_version: If True, stop both the published and local services. Otherwise, just stop the local service.
+        published_version: If True, stop both the published and test services. Otherwise, just stop the test service.
     """
     def stop_services(self, published_version: bool):
         # Stop the published service if needed, so long as it exists and is running
@@ -121,7 +121,7 @@ class CommonFunctions():
             print(f"Stopping Service: {self.get_config_setting('RestApiServiceName', True)}...")
             self.stop_service(True)
 
-        # Stop the local service so long as it exists and is running
+        # Stop the test service so long as it exists and is running
         if self.does_service_exist(False):
             print(f"Stopping Service: {self.get_config_setting('RestApiServiceName', False)}...")
             self.stop_service(False)
@@ -131,7 +131,7 @@ class CommonFunctions():
     Stops an individual application service.
 
     Args:
-        published_version: If True, stop the published service. Otherwise, stop the local service.
+        published_version: If True, stop the published service. Otherwise, stop the test service.
     """
     def stop_service(self, published_version: str):
         raise PlatformSpecificException()
@@ -141,7 +141,7 @@ class CommonFunctions():
     Starts the application services.
 
     Args:
-        published_version: If True, start both the published and local services. Otherwise, just start the local service.
+        published_version: If True, start both the published and test services. Otherwise, just start the test service.
     """
     def start_services(self, published_version: bool):
         # Start the published service if needed
@@ -149,7 +149,7 @@ class CommonFunctions():
             print(f"Starting Service: {self.get_config_setting('RestApiServiceName', True)}...")
             self.start_service(True)
 
-        # Start the local service
+        # Start the test service
         print(f"Starting Service: {self.get_config_setting('RestApiServiceName', False)}...")
         self.start_service(False)
     
@@ -158,7 +158,7 @@ class CommonFunctions():
     Starts an individual application service.
 
     Args:
-        published_version: If True, start the published service. Otherwise, start the local service.
+        published_version: If True, start the published service. Otherwise, start the test service.
     """
     def start_service(self, service_name: str):
         raise PlatformSpecificException()
@@ -174,15 +174,15 @@ class CommonFunctions():
         # Move to the Schema directory
         os.chdir(self.schema_directory)
 
-        # Publish a new local version and create a new migration based on the local version
-        local_schema_obj_directory = os.path.relpath(self.get_config_setting("AppDirectory", False) + "/obj/Schema")
+        # Publish a new test version and create a new migration based on the test version
+        test_schema_obj_directory = os.path.relpath(self.get_config_setting("AppDirectory", False) + "/obj/Schema")
         subprocess.run(["dotnet",
                         "ef",
                         "migrations",
                         "add",
                         name,
                         "--msbuildprojectextensionspath",
-                        local_schema_obj_directory], check=True)
+                        test_schema_obj_directory], check=True)
     
 
     """
@@ -201,13 +201,13 @@ class CommonFunctions():
         if remove_all and os.path.exists("./Migrations"):
             shutil.rmtree("./Migrations")
         elif not remove_all:
-            local_schema_obj_directory = os.path.relpath(self.get_config_setting("AppDirectory", False) + "/obj/Schema")
+            test_schema_obj_directory = os.path.relpath(self.get_config_setting("AppDirectory", False) + "/obj/Schema")
             subprocess.run(["dotnet", 
                             "ef", 
                             "migrations", 
                             "remove", 
                             "--msbuildprojectextensionspath", 
-                            local_schema_obj_directory], check=True)
+                            test_schema_obj_directory], check=True)
 
 
     """
@@ -215,7 +215,7 @@ class CommonFunctions():
 
     Args:
         name: Name of the configuration setting to retrieve
-        published_version: If True, grab the setting for the published version. Otherwise, get the local version.
+        published_version: If True, grab the setting for the published version. Otherwise, get the test version.
 
     Returns:
         The specified configuration setting from the config file
@@ -232,9 +232,9 @@ class CommonFunctions():
             raise Exception(f'The config file does not include the requested property "{name}"')
         config_setting = configuration[name]
 
-        # Ensure that the requested property has both a local and published value defined and grab the needed value
-        if not "Local" in config_setting:
-            raise Exception(f'The requested property "{name}" does not have a Local value defined.')
+        # Ensure that the requested property has both a test and published value defined and grab the needed value
+        if not "Test" in config_setting:
+            raise Exception(f'The requested property "{name}" does not have a Test value defined.')
         if not "Published" in config_setting:
             raise Exception(f'The requested property "{name}" does not have a Published value defined.')    
-        return(config_setting["Published"] if published_version else config_setting["Local"])
+        return(config_setting["Published"] if published_version else config_setting["Test"])

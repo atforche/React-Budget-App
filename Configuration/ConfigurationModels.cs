@@ -17,9 +17,9 @@ public record Configuration
 public record ConfigurationSetting
 {
     /// <summary>
-    /// Value of the setting if the app is running in a local context
+    /// Value of the setting if the app is running in a test context
     /// </summary>
-    public string? Local { get; set; }
+    public string? Test { get; set; }
 
     /// <summary>
     /// Value of the setting if the app is running in a published context
