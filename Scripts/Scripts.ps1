@@ -45,5 +45,4 @@ function Remove-Migration
     {
         python $PSScriptRoot\Scripts.py Remove-Migration
     }
-    
 }
