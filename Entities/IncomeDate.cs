@@ -1,10 +1,10 @@
 namespace Entities;
 
 /// <summary>
-/// Entity class representing an Expected Income Rate.
-/// Expected Income Rates are children of a Month and an Employer, and parents of Income Information.
+/// Entity class representing an Income Date.
+/// Income Dates are children of a Month and an Employer and parents of Income Information.
 /// </summary>
-public class ExpectedIncomeRate
+public class IncomeDate
 {
     #region Properties
 
@@ -12,6 +12,11 @@ public class ExpectedIncomeRate
     /// Primary Key
     /// </summary>
     public long Id { get; set; }
+
+    /// <summary>
+    /// Date for this Income Date
+    /// </summary>
+    public DateTime Date { get; }
 
     #endregion
 

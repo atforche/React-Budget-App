@@ -2,12 +2,8 @@ namespace Entities;
 
 /// <summary>
 /// Entity class representing an Employer.
-/// Employers are children of a Month and parents to Expected Income Rates,
-/// Expected Income Dates, and Actual Incomes.
+/// Employers are parents to Expected Income Rates and Income Dates.
 /// </summary>
-[ExcelTable(TableName = "Actual.Income")]
-[ExcelTable(TableName = "Expected.Income.Dates")]
-[ExcelTable(TableName = "Expected.Income.Rates")]
 public class Employer
 {
     #region Properties
@@ -15,37 +11,26 @@ public class Employer
     /// <summary>
     /// Primary Key
     /// </summary>
-    public long EmployerId { get; set; }
+    public long Id { get; set; }
 
     /// <summary>
-    /// Name of the employer
+    /// Name of the Employer
     /// </summary>
-    [ExcelColumn(ColumnName = "Employer")]
-    public string Name { get; set; } = null!;
+    public string Name { get; } = null!;
 
     #endregion
 
     #region Navigations
 
     /// <summary>
-    /// Navigation to the parent Month
+    /// Navigation to the child Expected Income Rates
     /// </summary>
-    public Month Month { get; } = null!;
+    public ICollection<ExpectedIncomeRate> ExpectedIncomeRate { get; } = null!;
 
     /// <summary>
-    /// Navigation to the child Expected Income Rate
+    /// Navigation to the child Income Dates
     /// </summary>
-    public ExpectedIncomeRate ExpectedIncomeRate { get; set; } = null!;
-
-    /// <summary>
-    /// Navigation to the child Expected Income Dates
-    /// </summary>
-    public ICollection<ExpectedIncomeDate> ExpectedIncomeDates { get; set; } = null!;
-
-    /// <summary>
-    /// Navigation to the child Actual Incomes
-    /// </summary>
-    public ICollection<ActualIncome> ActualIncomes { get; set; } = null!;
+    public ICollection<IncomeDate> IncomeDates { get; } = null!;
 
     #endregion
 

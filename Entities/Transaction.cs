@@ -2,9 +2,8 @@ namespace Entities;
 
 /// <summary>
 /// Entity class representing a Transaction.
-/// Transactions are children of a Budget.
+/// Transactions are children of a Month and parents of a Transaction Application.
 /// </summary>
-[ExcelTable(TableName = "Transactions")]
 public class Transaction
 {
     #region Properties
@@ -12,47 +11,46 @@ public class Transaction
     /// <summary>
     /// Primary Key
     /// </summary>
-    public long TransactionId { get; set; }
+    public long Id { get; set; }
 
     /// <summary>
-    /// Date of the transaction
+    /// Date of the Transaction
     /// </summary>
-    [ExcelColumn(ColumnName = "Date")]
-    public DateTime Date { get; set; }
+    public DateTime Date { get; }
 
     /// <summary>
-    /// Location of the transaction
+    /// Location of the Transaction
     /// </summary>
-    [ExcelColumn(ColumnName = "Location")]
-    public string Location { get; set; } = null!;
+    public string Location { get; } = null!;
 
     /// <summary>
-    /// Description of the transaction
+    /// Description of the Transaction
     /// </summary>
-    [ExcelColumn(ColumnName = "Description")]
-    public string Description { get; set; } = null!;
+    public string Description { get; } = null!;
 
     /// <summary>
-    /// Type of the transaction
+    /// Type of the Transaction
     /// </summary>
-    [ExcelColumn(ColumnName = "Type")]
-    public TransactionType TransactionType { get; set; }
+    public TransactionType TransactionType { get; }
 
     /// <summary>
-    /// Amount of the transaction
+    /// Amount of the Transaction
     /// </summary>
-    [ExcelColumn(ColumnName = "Amount")]
-    public decimal Amount { get; set; }
+    public decimal Amount { get; }
 
     #endregion
 
     #region Navigations
 
     /// <summary>
-    /// Navigation to the parent Budget
+    /// Navigation to the parent Month
     /// </summary>
-    [ExcelColumn(ColumnName = "Category")]
-    public Budget Budget { get; } = null!;
+    public Month Month { get; } = null!;
+
+    /// <summary>
+    /// Navigation to the child Transaction Applications
+    /// </summary>
+    public ICollection<TransactionApplication> TransactionApplications { get; } = null!;
 
     #endregion
 
@@ -62,10 +60,17 @@ public class Transaction
 }
 
 /// <summary>
-/// Enum representing the different types of transactions
+/// Enum representing the different types of Transactions
 /// </summary>
 public enum TransactionType
 {
+    /// <summary>
+    /// A Debit Transaction represents money that was spent against a budget
+    /// </summary>
     Debit,
+
+    /// <summary>
+    /// A Credit Transaction represents money that was saved / put back towards a budget
+    /// </summary>
     Credit
 }

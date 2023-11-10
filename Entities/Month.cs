@@ -11,17 +11,17 @@ public class Month
     /// <summary>
     /// Primary Key
     /// </summary>
-    public long MonthId { get; set; }
+    public long Id { get; set; }
 
     /// <summary>
     /// Year of the month
     /// </summary>
-    public int Year { get; set; }
+    public int Year { get; }
 
     /// <summary>
     /// Number representing the month (1-12)
     /// </summary>
-    public int MonthNumber { get; set; }
+    public int MonthNumber { get; }
 
     #endregion
 
@@ -33,14 +33,29 @@ public class Month
     public ICollection<Budget> Budgets { get; } = null!;
 
     /// <summary>
+    /// Navigation to the child Transactions
+    /// </summary>
+    public ICollection<Transaction> Transactions { get; } = null!;
+
+    /// <summary>
+    /// Navigation to the child Expected Income Rates
+    /// </summary>
+    public ICollection<ExpectedIncomeRate> ExpectedIncomeRates { get; } = null!;
+
+    /// <summary>
+    /// Navigation to the child Income Dates
+    /// </summary>
+    public ICollection<IncomeDate> IncomeDates { get; } = null!;
+
+    /// <summary>
     /// Navigation to the child Account Balances
     /// </summary>
     public ICollection<AccountBalance> AccountBalances { get; } = null!;
 
     /// <summary>
-    /// Navigation to the child Employers
+    /// Navigation to the child Account Mappings
     /// </summary>
-    public ICollection<Employer> Employers { get; } = null!;
+    public ICollection<AccountMapping> AccountMappings { get; } = null!;
 
     #endregion
 
