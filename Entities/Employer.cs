@@ -2,7 +2,7 @@ namespace Entities;
 
 /// <summary>
 /// Entity class representing an Employer.
-/// Employers are parents to Expected Income Rates and Income Dates.
+/// Employers are parents to Employer Income Rates and Incomes.
 /// </summary>
 public class Employer
 {
@@ -18,19 +18,15 @@ public class Employer
     /// </summary>
     public string Name { get; } = null!;
 
-    #endregion
-
-    #region Navigations
+    /// <summary>
+    /// Navigation to the child Employer Income Rates
+    /// </summary>
+    public ICollection<EmployerIncomeRate> EmployerIncomeRates { get; } = null!;
 
     /// <summary>
-    /// Navigation to the child Expected Income Rates
+    /// Navigation to the related Incomes
     /// </summary>
-    public ICollection<ExpectedIncomeRate> ExpectedIncomeRate { get; } = null!;
-
-    /// <summary>
-    /// Navigation to the child Income Dates
-    /// </summary>
-    public ICollection<IncomeDate> IncomeDates { get; } = null!;
+    public ICollection<Income> Incomes { get; } = null!;
 
     #endregion
 

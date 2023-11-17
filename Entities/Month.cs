@@ -23,10 +23,6 @@ public class Month
     /// </summary>
     public int MonthNumber { get; }
 
-    #endregion
-
-    #region Navigations
-
     /// <summary>
     /// Navigation to the child Budgets
     /// </summary>
@@ -38,14 +34,14 @@ public class Month
     public ICollection<Transaction> Transactions { get; } = null!;
 
     /// <summary>
-    /// Navigation to the child Expected Income Rates
+    /// Navigation to the child Employer Income Rates
     /// </summary>
-    public ICollection<ExpectedIncomeRate> ExpectedIncomeRates { get; } = null!;
+    public ICollection<EmployerIncomeRate> EmployerIncomeRates { get; } = null!;
 
     /// <summary>
-    /// Navigation to the child Income Dates
+    /// Navigation to the child Incomes
     /// </summary>
-    public ICollection<IncomeDate> IncomeDates { get; } = null!;
+    public ICollection<Income> Incomes { get; } = null!;
 
     /// <summary>
     /// Navigation to the child Account Balances

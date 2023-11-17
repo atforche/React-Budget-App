@@ -2,7 +2,7 @@ namespace Entities;
 
 /// <summary>
 /// Entity class representing a Budget.
-/// Budgets are children of a Month, and parents of Transaction Applications and Account Mappings.
+/// Budgets are children of a Month, and related to an Account Mapping and Transaction Applications.
 /// </summary>
 public class Budget
 {
@@ -14,22 +14,27 @@ public class Budget
     public long Id { get; set; }
 
     /// <summary>
-    /// Name of this Budget
+    /// Navigation to the parent Month
+    /// </summary>
+    public Month Month { get; } = null!;
+
+    /// <summary>
+    /// Name of the Budget
     /// </summary>
     public string Name { get; } = null!;
 
     /// <summary>
-    /// Type of this Budget
+    /// Type of the Budget
     /// </summary>
-    public BudgetType BudgetType { get; }
+    public BudgetType Type { get; }
 
     /// <summary>
-    /// Amount of this Budget
+    /// Amount of the Budget
     /// </summary>
     public decimal Amount { get; }
 
     /// <summary>
-    /// Rollover Amount of this Budget
+    /// Rollover Amount of the Budget
     /// </summary>
     /// <remarks>
     /// If this Budget has a type of Rolling or Savings, the starting balance of this Budget is equal to
@@ -38,7 +43,7 @@ public class Budget
     public decimal? RolloverAmount { get; }
 
     /// <summary>
-    /// Is Rollover Amount Override flag of this Budget
+    /// Is Rollover Amount Override flag of the Budget
     /// </summary>
     /// <remarks>
     /// If this Budget has a type of Rolling or Savings, there are some cases where the Rollover Amount from
@@ -47,27 +52,19 @@ public class Budget
     /// </remarks>
     public bool? IsRolloverAmountOverridden { get; }
 
-    #endregion
-
-    #region Navigations
-
     /// <summary>
-    /// Navigation to the parent Month
-    /// </summary>
-    public Month Month { get; } = null!;
-
-    /// <summary>
-    /// Navigation to the child Transaction Applications
-    /// </summary>
-    public ICollection<TransactionApplication> TransactionApplications { get; } = null!;
-
-    /// <summary>
-    /// Navigation to the child Account Mapping
+    /// Navigation to the related Account Mapping
     /// </summary>
     /// <remarks>
     /// If not null, there's an Account Mapping that maps directly to this individual budget.
+    /// If null, there's an Account Mapping that maps to this budget's type.
     /// </remarks>
     public AccountMapping? AccountMapping { get; } = null!;
+
+    /// <summary>
+    /// Navigation to the related Transaction Applications
+    /// </summary>
+    public ICollection<TransactionApplication> TransactionApplications { get; } = null!;
 
     #endregion
 

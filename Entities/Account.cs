@@ -14,18 +14,14 @@ public class Account
     public long Id { get; set; }
 
     /// <summary>
-    /// Name of this Account
+    /// Name of the Account
     /// </summary>
     public string Name { get; } = null!;
 
     /// <summary>
-    /// Account Type of this Account
+    /// Type of the Account
     /// </summary>
-    public AccountType AccountType { get; }
-
-    #endregion
-
-    #region Navigations
+    public AccountType Type { get; }
 
     /// <summary>
     /// Navigation to the child Account Balances

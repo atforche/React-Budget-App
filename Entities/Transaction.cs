@@ -2,7 +2,7 @@ namespace Entities;
 
 /// <summary>
 /// Entity class representing a Transaction.
-/// Transactions are children of a Month and parents of a Transaction Application.
+/// Transactions are children of a Month, parents of Transaction Applications, and related to an Account Mapping.
 /// </summary>
 public class Transaction
 {
@@ -12,6 +12,11 @@ public class Transaction
     /// Primary Key
     /// </summary>
     public long Id { get; set; }
+
+    /// <summary>
+    /// Navigation to the parent Month
+    /// </summary>
+    public Month Month { get; } = null!;
 
     /// <summary>
     /// Date of the Transaction
@@ -31,21 +36,30 @@ public class Transaction
     /// <summary>
     /// Type of the Transaction
     /// </summary>
-    public TransactionType TransactionType { get; }
+    public TransactionType Type { get; }
 
     /// <summary>
     /// Amount of the Transaction
     /// </summary>
     public decimal Amount { get; }
 
-    #endregion
-
-    #region Navigations
+    /// <summary>
+    /// Navigation to the related Credit Card Account Mapping
+    /// </summary>
+    /// <remark>
+    /// If not null, this Transaction was made on a credit card. Any Applications under this Transaction should
+    /// count against their Budgets but not decrement their mapped Accounts until this Transaction is paid off.
+    /// </remark>
+    public AccountMapping? CreditCardAccountMapping { get; } = null!;
 
     /// <summary>
-    /// Navigation to the parent Month
+    /// Paid Off Date of the Transaction
     /// </summary>
-    public Month Month { get; } = null!;
+    /// <remarks>
+    /// For a credit card Transaction, this date indicates when the credit card balance for this transaction was 
+    /// paid off.
+    /// </remarks>
+    public DateTime? PaidOffDate { get; } = null!;
 
     /// <summary>
     /// Navigation to the child Transaction Applications
@@ -72,5 +86,10 @@ public enum TransactionType
     /// <summary>
     /// A Credit Transaction represents money that was saved / put back towards a budget
     /// </summary>
-    Credit
+    Credit,
+
+    /// <summary>
+    /// A Transfer Transaction represents money that is debited from one budget and credited to another
+    /// </summary>
+    Transfer
 }

@@ -14,20 +14,6 @@ public class AccountBalance
     public long Id { get; set; }
 
     /// <summary>
-    /// Date of this Account Balance
-    /// </summary>
-    public DateTime Date { get; }
-
-    /// <summary>
-    /// Amount of this Account Balance
-    /// </summary>
-    public decimal Amount { get; }
-
-    #endregion
-
-    #region Navigations
-
-    /// <summary>
     /// Navigation to the parent Account
     /// </summary>
     public Account Account { get; } = null!;
@@ -36,6 +22,16 @@ public class AccountBalance
     /// Navigation to the parent Month
     /// </summary>
     public Month Month { get; } = null!;
+
+    /// <summary>
+    /// Date of the Account Balance
+    /// </summary>
+    public DateTime Date { get; }
+
+    /// <summary>
+    /// Amount of the Account Balance
+    /// </summary>
+    public decimal Amount { get; }
 
     #endregion
 
