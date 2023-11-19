@@ -5,3 +5,4 @@ run
 Import/*
 config.json
 *.pyc
+Schema/test.xlsx
