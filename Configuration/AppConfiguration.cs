@@ -30,6 +30,11 @@ public static class AppConfiguration
     /// </summary>
     public static string AppDirectory { get; }
 
+    /// <summary>
+    /// Import directory for the current app context
+    /// </summary>
+    public static string ImportDirectory { get; }
+
     #endregion
 
     #region Methods
@@ -52,6 +57,7 @@ public static class AppConfiguration
         AppDirectory = IsPublished
             ? currentConfiguration?.AppDirectory?.Published ?? throw new InvalidOperationException()
             : currentConfiguration?.AppDirectory?.Test ?? throw new InvalidOperationException();
+        ImportDirectory = AppDirectory + "\\Import";
     }
 
     /// <summary>

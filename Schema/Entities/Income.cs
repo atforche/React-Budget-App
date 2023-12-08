@@ -1,4 +1,6 @@
-namespace Entities;
+using Models;
+
+namespace Schema.Entities;
 
 /// <summary>
 /// Entity class representing an Income.
@@ -9,9 +11,7 @@ public class Income
 {
     #region Properties
 
-    /// <summary>
-    /// Primary Key
-    /// </summary>
+    /// <inheritdoc cref="IIncome.Id"/>
     public long Id { get; set; }
 
     /// <summary>
@@ -24,26 +24,18 @@ public class Income
     /// </summary>
     public Employer? Employer { get; } = null!;
 
-    /// <summary>
-    /// Date for the Income
-    /// </summary>
+    /// <inheritdoc cref="IIncome.Date"/>
     public DateTime Date { get; }
 
-    /// <summary>
-    /// Amount for the Income
-    /// </summary>
+    /// <Inheritdoc cref="IIncome.Amount"/>
     public decimal Amount { get; }
 
-    /// <summary>
-    /// Description for the Income
-    /// </summary>
+    /// <inheritdoc cref="IIncome.Description"/>
     public string Description { get; } = null!;
 
     /// <summary>
     /// Navigation to the related Override Account Mapping
     /// </summary>
-    /// If null, this Income will be credited to the Account mapped to the Spend budget type
-    /// If not null, this Income will be credited the Account specified on this Account Mapping.
     public AccountMapping? OverrideAccountMapping { get; } = null!;
 
     /// <summary>

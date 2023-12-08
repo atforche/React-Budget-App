@@ -1,5 +1,5 @@
-using Entities;
 using Microsoft.EntityFrameworkCore;
+using Schema.Entities;
 
 namespace Schema;
 

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <!-- C# Language Stuff -->
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>    
 
@@ -14,13 +14,13 @@
   <!-- Local Project References -->
   <ItemGroup>
     <ProjectReference Include="..\Configuration\Configuration.csproj"/>
-    <ProjectReference Include="..\Entities\Entities.csproj"/>
+    <ProjectReference Include="..\Models\Models.csproj"/>
   </ItemGroup>
 
   <!-- Nuget Package References -->
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1"/>
-    <PackageReference Include="NPOI" Version="2.6.1"/>
+    <PackageReference Include="NPOI" Version="2.6.2"/>
   </ItemGroup>
   
 </Project>

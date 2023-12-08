@@ -6,11 +6,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Util
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApi", "RestApi\RestApi.csproj", "{C8287A57-4493-4187-B2C1-1678A7CDFDB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{0BE75315-5FB5-4E91-ABCB-C31385BEECF5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schema", "Schema\Schema.csproj", "{76D7C37A-69D2-429C-B2ED-E5690A804134}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration", "Configuration\Configuration.csproj", "{A071BC1A-D30C-4952-95B9-2506F610ACC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{3E14AF60-D328-484D-A28A-ECF5A288E2D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,5 +41,13 @@ Global
 		{A071BC1A-D30C-4952-95B9-2506F610ACC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A071BC1A-D30C-4952-95B9-2506F610ACC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A071BC1A-D30C-4952-95B9-2506F610ACC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D5F0581-27B6-4FE4-983A-DD0E5223AE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D5F0581-27B6-4FE4-983A-DD0E5223AE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D5F0581-27B6-4FE4-983A-DD0E5223AE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D5F0581-27B6-4FE4-983A-DD0E5223AE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E14AF60-D328-484D-A28A-ECF5A288E2D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E14AF60-D328-484D-A28A-ECF5A288E2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E14AF60-D328-484D-A28A-ECF5A288E2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E14AF60-D328-484D-A28A-ECF5A288E2D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

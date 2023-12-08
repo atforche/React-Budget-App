@@ -1,43 +1,74 @@
-namespace Entities;
+using System.Text.Json.Serialization;
+
+namespace Models;
 
 /// <summary>
-/// Entity class representing an Account.
-/// Accounts are parents of Account Balances and Account Mappings.
+/// Read-only interface representing an Account.
 /// </summary>
-public class Account
+[ExcelTable("Accounts", false)]
+public interface IAccount
 {
-    #region Properties
-
     /// <summary>
-    /// Primary Key
+    /// Id of the Account
     /// </summary>
-    public long Id { get; set; }
+    long Id { get; }
 
     /// <summary>
     /// Name of the Account
     /// </summary>
-    public string Name { get; } = null!;
+    [ExcelColumn("Name", typeof(string))]
+    string Name { get; }
 
     /// <summary>
     /// Type of the Account
     /// </summary>
-    public AccountType Type { get; }
+    [ExcelColumn("Type", typeof(string))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    AccountType Type { get; }
+}
 
+/// <summary>
+/// Interface representing a request to create an Account.
+/// </summary>
+public interface ICreateAccountRequest
+{
     /// <summary>
-    /// Navigation to the child Account Balances
+    /// Id of the Create Account Request
     /// </summary>
-    public ICollection<AccountBalance> AccountBalances { get; } = null!;
+    long Id { get; }
 
-    /// <summary>
-    /// Navigation to the child Account Mappings
-    /// </summary>
-    public ICollection<AccountMapping> AccountMappings { get; } = null!;
+    /// <inheritdoc cref="IAccount.Name"/>
+    string Name { get; }
 
-    #endregion
+    /// <inheritdoc cref="IAccount.Type"/>
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    AccountType Type { get; }
+}
 
-    #region Methods
+public record CreateAccountRequest : ICreateAccountRequest
+{
+    private static long Sequence = 1;
 
-    #endregion
+    /// <inheritdoc/>
+    public long Id { get; } = Sequence++;
+
+    /// <inheritdoc/>
+    public required string Name { get; init; }
+
+    /// <inheritdoc/>
+    public required AccountType Type { get; init; }
+}
+
+/// <summary>
+/// Interface representing a request to change an Account.
+/// </summary>
+public interface IChangeAccountRequest
+{
+    /// <inheritdoc cref="IAccount.Id"/>
+    long Id { get; }
+
+    /// <inheritdoc cref="IAccount.Name"/>
+    string Name { get; }
 }
 
 /// <summary>

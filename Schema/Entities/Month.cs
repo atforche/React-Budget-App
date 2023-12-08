@@ -1,4 +1,6 @@
-namespace Entities;
+using Models;
+
+namespace Schema.Entities;
 
 /// <summary>
 /// Entity class representing a Month.
@@ -8,25 +10,24 @@ public class Month
 {
     #region Properties
 
-    /// <summary>
-    /// Primary Key
-    /// </summary>
+    /// <inheritdoc cref="IMonth.Id"/>
     public long Id { get; set; }
 
-    /// <summary>
-    /// Year of the month
-    /// </summary>
+    /// <inheritdoc cref="IMonth.Year"/>
     public int Year { get; }
 
-    /// <summary>
-    /// Number representing the month (1-12)
-    /// </summary>
+    /// <inheritdoc cref="IMonth.MonthNumber"/>
     public int MonthNumber { get; }
 
     /// <summary>
     /// Navigation to the child Budgets
     /// </summary>
     public ICollection<Budget> Budgets { get; } = null!;
+
+    /// <summary>
+    /// Navigation to the child Account Mappings
+    /// </summary>
+    public ICollection<AccountMapping> AccountMappings { get; } = null!;
 
     /// <summary>
     /// Navigation to the child Transactions
@@ -47,11 +48,6 @@ public class Month
     /// Navigation to the child Account Balances
     /// </summary>
     public ICollection<AccountBalance> AccountBalances { get; } = null!;
-
-    /// <summary>
-    /// Navigation to the child Account Mappings
-    /// </summary>
-    public ICollection<AccountMapping> AccountMappings { get; } = null!;
 
     #endregion
 

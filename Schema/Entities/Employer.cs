@@ -1,4 +1,6 @@
-namespace Entities;
+using Models;
+
+namespace Schema.Entities;
 
 /// <summary>
 /// Entity class representing an Employer.
@@ -8,14 +10,10 @@ public class Employer
 {
     #region Properties
 
-    /// <summary>
-    /// Primary Key
-    /// </summary>
+    /// <inheritdoc cref="IEmployer.Id"/>
     public long Id { get; set; }
 
-    /// <summary>
-    /// Name of the Employer
-    /// </summary>
+    /// <inheritdoc cref="IEmployer.Name"/>
     public string Name { get; } = null!;
 
     /// <summary>

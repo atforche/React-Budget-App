@@ -1,4 +1,6 @@
-namespace Entities;
+using Models;
+
+namespace Schema.Entities;
 
 /// <summary>
 /// Entity class representing an Employer Income Information.
@@ -8,9 +10,7 @@ public class EmployerIncomeInformation
 {
     #region Properties
 
-    /// <summary>
-    /// Primary Key
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeInformation.Id"/>
     public long Id { get; set; }
 
     /// <summary>
@@ -31,39 +31,25 @@ public class EmployerIncomeInformation
     /// </remarks>
     public EmployerIncomeRate? EmployerIncomeRate { get; } = null!;
 
-    /// <summary>
-    /// Salary Income for this Income Information
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeInformation.SalaryIncome"/>
     public decimal SalaryIncome { get; }
 
-    /// <summary>
-    /// Additional Taxable Income for this Income Information
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeInformation.AdditionalTaxableIncome"/>
     public decimal AdditionalTaxableIncome { get; }
 
-    /// <summary>
-    /// Retirement Contribution Amount for this Income Information
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeInformation.RetirementContributionAmount"/>
     public decimal RetirementContributionAmount { get; }
 
-    /// <summary>
-    /// Pension Contribution Amount for this Income Information
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeInformation.PensionContributionAmount"/>
     public decimal PensionContributionAmount { get; }
 
-    /// <summary>
-    /// Pre-Tax Deduction Amount for this Income Information
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeInformation.PreTaxDeductionAmount"/>
     public decimal PreTaxDeductionAmount { get; }
 
-    /// <summary>
-    /// Tax Withholding Amount for this Income Information
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeInformation.TaxWithholdingAmount"/>
     public decimal TaxWithholdingAmount { get; }
 
-    /// <summary>
-    /// Post-Tax Deduction Amount for this Income Information
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeInformation.PostTaxDeductionAmount"/>
     public decimal PostTaxDeductionAmount { get; }
 
     #endregion

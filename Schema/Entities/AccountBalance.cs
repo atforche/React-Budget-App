@@ -1,4 +1,6 @@
-namespace Entities;
+using Models;
+
+namespace Schema.Entities;
 
 /// <summary>
 /// Entity class representing an Account Balance.
@@ -8,9 +10,7 @@ public class AccountBalance
 {
     #region Properties
 
-    /// <summary>
-    /// Primary Key
-    /// </summary>
+    /// <inheritdoc cref="IAccountBalance.Id"/>
     public long Id { get; set; }
 
     /// <summary>
@@ -23,14 +23,10 @@ public class AccountBalance
     /// </summary>
     public Month Month { get; } = null!;
 
-    /// <summary>
-    /// Date of the Account Balance
-    /// </summary>
+    /// <inheritdoc cref="IAccountBalance.Date"/>
     public DateTime Date { get; }
 
-    /// <summary>
-    /// Amount of the Account Balance
-    /// </summary>
+    /// <inheritdoc cref="IAccountBalance.Amount"/>
     public decimal Amount { get; }
 
     #endregion

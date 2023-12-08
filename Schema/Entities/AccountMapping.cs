@@ -1,4 +1,6 @@
-namespace Entities;
+using Models;
+
+namespace Schema.Entities;
 
 /// <summary>
 /// Entity class representing an Account Mapping.
@@ -9,9 +11,7 @@ public class AccountMapping
 {
     #region Properties
 
-    /// <summary>
-    /// Primary Key
-    /// </summary>
+    /// <inheritdoc cref="IAccountMapping.Id"/>
     public long Id { get; set; }
 
     /// <summary>
@@ -24,39 +24,18 @@ public class AccountMapping
     /// </summary>
     public Month Month { get; } = null!;
 
-    /// <summary>
-    /// Starting Balance of the Account Mapping
-    /// </summary>
+    /// <inheritdoc cref="IAccountMapping.StartingBalance"/>
     public decimal StartingBalance { get; }
 
     /// <summary>
     /// Navigation to the related Budget
     /// </summary>
-    /// <remarks>
-    /// If not null, this Account Mapping will apply only to the single Budget specified here.
-    /// Only one of the BudgetType and Budget may be provided for a regular Account Mapping.
-    /// Both must be null for a credit card Account Mapping.
-    /// </remarks>
     public Budget? Budget { get; } = null!;
 
-    /// <summary>
-    /// Budget Type of the Account Mapping
-    /// </summary>
-    /// <remarks>
-    /// If not null, this Account Mapping will apply to every Budget that falls under the specified Budget Type.
-    /// Only one of the BudgetType and Budget may be provided for a regular Account Mapping.
-    /// Both must be null for a credit card Account Mapping.
-    /// </remarks>
+    /// <inheritdoc cref="IAccountMapping.BudgetType"/>
     public BudgetType? BudgetType { get; }
 
-    /// <summary>
-    /// Is Default flag of this Account Mapping
-    /// </summary>
-    /// <remarks>
-    /// If multiple Account Mappings exist for the same Budget or Budget Type, only one may be specified as
-    /// the default. The default account mapping will be used by any Transaction Applications against the 
-    /// Budget or Budget Type, unless an override is provided on the Application.
-    /// </remarks>
+    /// <inheritdoc cref="IAccountMapping.IsDefault"/>
     public bool IsDefault { get; }
 
     /// <summary>

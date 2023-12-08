@@ -1,4 +1,6 @@
-namespace Entities;
+using Models;
+
+namespace Schema.Entities;
 
 /// <summary>
 /// Entity class representing an Employer Income Rate.
@@ -8,9 +10,7 @@ public class EmployerIncomeRate
 {
     #region Properties
 
-    /// <summary>
-    /// Primary Key
-    /// </summary>
+    /// <inheritdoc cref="IEmployerIncomeRate.Id"/>
     public long Id { get; set; }
 
     /// <summary>
