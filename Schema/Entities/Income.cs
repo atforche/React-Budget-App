@@ -12,36 +12,36 @@ public class Income
     #region Properties
 
     /// <inheritdoc cref="IIncome.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <summary>
     /// Navigation to the parent Month
     /// </summary>
-    public Month Month { get; } = null!;
+    public required Month Month { get; set; }
 
     /// <summary>
     /// Navigation to the parent Employer
     /// </summary>
-    public Employer? Employer { get; } = null!;
+    public Employer? Employer { get; set; }
 
     /// <inheritdoc cref="IIncome.Date"/>
-    public DateTime Date { get; }
+    public required DateTime Date { get; set; }
 
     /// <Inheritdoc cref="IIncome.Amount"/>
-    public decimal Amount { get; }
+    public required decimal Amount { get; set; }
 
     /// <inheritdoc cref="IIncome.Description"/>
-    public string Description { get; } = null!;
+    public required string Description { get; set; }
 
     /// <summary>
     /// Navigation to the related Override Account Mapping
     /// </summary>
-    public AccountMapping? OverrideAccountMapping { get; } = null!;
+    public AccountMapping? OverrideAccountMapping { get; set; }
 
     /// <summary>
     /// Navigation to the child Employer Income Information
     /// </summary>
-    public EmployerIncomeInformation? EmployerIncomeInformation { get; } = null!;
+    public EmployerIncomeInformation? EmployerIncomeInformation { get; set; }
 
     #endregion
 

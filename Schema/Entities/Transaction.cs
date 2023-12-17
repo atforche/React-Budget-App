@@ -11,37 +11,37 @@ public class Transaction
     #region Properties
 
     /// <inheritdoc cref="ITransaction.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <summary>
     /// Navigation to the parent Month
     /// </summary>
-    public Month Month { get; } = null!;
+    public required Month Month { get; set; }
 
     /// <inheritdoc cref="ITransaction.Date"/>
-    public DateTime Date { get; }
+    public required DateTime Date { get; set; }
 
     /// <inheritdoc cref="ITransaction.Location"/>
-    public string Location { get; } = null!;
+    public required string Location { get; set; }
 
     /// <inheritdoc cref="ITransaction.Type"/>
-    public TransactionType Type { get; }
+    public required TransactionType Type { get; set; }
 
     /// <inheritdoc cref="ITransaction.Amount"/>
-    public decimal Amount { get; }
+    public required decimal Amount { get; set; }
 
     /// <summary>
     /// Navigation to the related Credit Card Account
     /// </summary>
-    public Account? CreditCardAccount { get; } = null!;
+    public Account? CreditCardAccount { get; set; }
 
     /// <inheritdoc cref="ITransaction.CreditCardAccountId"/>
-    public DateTime? PaidOffDate { get; } = null!;
+    public DateTime? PaidOffDate { get; set; }
 
     /// <summary>
     /// Navigation to the child Transaction Applications
     /// </summary>
-    public ICollection<TransactionApplication> TransactionApplications { get; } = null!;
+    public required ICollection<TransactionApplication> TransactionApplications { get; set; }
 
     #endregion
 

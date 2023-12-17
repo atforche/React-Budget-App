@@ -11,22 +11,22 @@ public class EmployerIncomeRate
     #region Properties
 
     /// <inheritdoc cref="IEmployerIncomeRate.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <summary>
     /// Navigation to the parent Employer
     /// </summary>
-    public Employer Employer { get; } = null!;
+    public required Employer Employer { get; set; }
 
     /// <summary>
     /// Navigation to the parent Month
     /// </summary>
-    public Month Month { get; } = null!;
+    public required Month Month { get; set; }
 
     /// <summary>
     /// Navigation to the child Employer Income Information
     /// </summary>
-    public EmployerIncomeInformation EmployerIncomeInformation { get; } = null!;
+    public required EmployerIncomeInformation EmployerIncomeInformation { get; set; }
 
     #endregion
 

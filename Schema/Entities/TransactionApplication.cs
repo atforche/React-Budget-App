@@ -11,31 +11,31 @@ public class TransactionApplication
     #region Properties
 
     /// <interface cref="ITransactionApplication.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <summary>
     /// Navigation to the parent Transaction
     /// </summary>
-    public Transaction Transaction { get; } = null!;
+    public required Transaction Transaction { get; set; }
 
     /// <inheritdoc cref="ITransactionApplication.Type"/>
-    public ApplicationType Type { get; set; }
+    public required ApplicationType Type { get; set; }
 
     /// <inheritdoc cref="ITransactionApplication.Description"/>
-    public string Description { get; } = null!;
+    public required string Description { get; set; }
 
     /// <inheritdoc cref="ITransactionApplication.Amount"/>
-    public decimal Amount { get; }
+    public required decimal Amount { get; set; }
 
     /// <summary>
     /// Navigation to the related Budget
     /// </summary>
-    public Budget Budget { get; } = null!;
+    public required Budget Budget { get; set; }
 
     /// <summary>
     /// Navigation to the related Override Account Mapping
     /// </summary>
-    public AccountMapping? OverrideAccountMapping { get; } = null!;
+    public AccountMapping? OverrideAccountMapping { get; set; }
 
     #endregion
 

@@ -11,27 +11,27 @@ public class Budget
     #region Properties
 
     /// <inheritdoc cref="IBudget.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <summary>
     /// Navigation to the parent Month
     /// </summary>
-    public Month Month { get; } = null!;
+    public required Month Month { get; set; }
 
     /// <inheritdoc cref="IBudget.Name"/>
-    public string Name { get; } = null!;
+    public required string Name { get; set; }
 
     /// <inheritdoc cref="IBudget.Type"/>
-    public BudgetType Type { get; }
+    public required BudgetType Type { get; set; }
 
     /// <inheritdoc cref="IBudget.Amount"/>
-    public decimal Amount { get; }
+    public required decimal Amount { get; set; }
 
     /// <inheritdoc cref="IBudget.RolloverAmount"/>
-    public decimal? RolloverAmount { get; }
+    public decimal? RolloverAmount { get; set; }
 
     /// <inheritdoc cref="IBudget.IsRolloverAmountOverridden"/>
-    public bool? IsRolloverAmountOverridden { get; }
+    public bool? IsRolloverAmountOverridden { get; set; }
 
     /// <summary>
     /// Navigation to the related Account Mapping
@@ -40,12 +40,12 @@ public class Budget
     /// If not null, there's an Account Mapping that maps directly to this individual budget.
     /// If null, there's an Account Mapping that maps to this budget's type.
     /// </remarks>
-    public AccountMapping? AccountMapping { get; } = null!;
+    public AccountMapping? AccountMapping { get; set; }
 
     /// <summary>
     /// Navigation to the related Transaction Applications
     /// </summary>
-    public ICollection<TransactionApplication> TransactionApplications { get; } = null!;
+    public required ICollection<TransactionApplication> TransactionApplications { get; set; }
 
     #endregion
 

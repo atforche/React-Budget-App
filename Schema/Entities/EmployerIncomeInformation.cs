@@ -11,7 +11,7 @@ public class EmployerIncomeInformation
     #region Properties
 
     /// <inheritdoc cref="IEmployerIncomeInformation.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <summary>
     /// Navigation to the parent Income
@@ -20,7 +20,7 @@ public class EmployerIncomeInformation
     /// If not null, this Income Information belongs to an Income.
     /// An Employer Income Information can only belong to one of an Employer Income Rate or an Income.
     /// </remark>
-    public Income? Income { get; } = null!;
+    public required Income? Income { get; set; }
 
     /// <summary>
     /// Navigation to the parent Employer Income Rate
@@ -29,28 +29,28 @@ public class EmployerIncomeInformation
     /// If not null, this Income Information belongs to an Employer Income Rate.
     /// An Employer Income Information can only belong to one of an Employer Income Rate or an Income.
     /// </remarks>
-    public EmployerIncomeRate? EmployerIncomeRate { get; } = null!;
+    public required EmployerIncomeRate? EmployerIncomeRate { get; set; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.SalaryIncome"/>
-    public decimal SalaryIncome { get; }
+    public required decimal SalaryIncome { get; set; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.AdditionalTaxableIncome"/>
-    public decimal AdditionalTaxableIncome { get; }
+    public required decimal AdditionalTaxableIncome { get; set; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.RetirementContributionAmount"/>
-    public decimal RetirementContributionAmount { get; }
+    public required decimal RetirementContributionAmount { get; set; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.PensionContributionAmount"/>
-    public decimal PensionContributionAmount { get; }
+    public required decimal PensionContributionAmount { get; set; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.PreTaxDeductionAmount"/>
-    public decimal PreTaxDeductionAmount { get; }
+    public required decimal PreTaxDeductionAmount { get; set; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.TaxWithholdingAmount"/>
-    public decimal TaxWithholdingAmount { get; }
+    public required decimal TaxWithholdingAmount { get; set; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.PostTaxDeductionAmount"/>
-    public decimal PostTaxDeductionAmount { get; }
+    public required decimal PostTaxDeductionAmount { get; set; }
 
     #endregion
 

@@ -11,23 +11,23 @@ public class AccountBalance
     #region Properties
 
     /// <inheritdoc cref="IAccountBalance.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <summary>
     /// Navigation to the parent Account
     /// </summary>
-    public Account Account { get; } = null!;
+    public required Account Account { get; set; }
 
     /// <summary>
     /// Navigation to the parent Month
     /// </summary>
-    public Month Month { get; } = null!;
+    public required Month Month { get; set; }
 
     /// <inheritdoc cref="IAccountBalance.Date"/>
-    public DateTime Date { get; }
+    public required DateTime Date { get; set; }
 
     /// <inheritdoc cref="IAccountBalance.Amount"/>
-    public decimal Amount { get; }
+    public required decimal Amount { get; set; }
 
     #endregion
 

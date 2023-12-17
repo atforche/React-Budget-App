@@ -11,20 +11,20 @@ public class Employer
     #region Properties
 
     /// <inheritdoc cref="IEmployer.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <inheritdoc cref="IEmployer.Name"/>
-    public string Name { get; } = null!;
+    public required string Name { get; set; }
 
     /// <summary>
     /// Navigation to the child Employer Income Rates
     /// </summary>
-    public ICollection<EmployerIncomeRate> EmployerIncomeRates { get; } = null!;
+    public required ICollection<EmployerIncomeRate> EmployerIncomeRates { get; set; }
 
     /// <summary>
     /// Navigation to the related Incomes
     /// </summary>
-    public ICollection<Income> Incomes { get; } = null!;
+    public required ICollection<Income> Incomes { get; set; }
 
     #endregion
 

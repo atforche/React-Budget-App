@@ -11,23 +11,23 @@ public class Account
     #region Properties
 
     /// <inheritdoc cref="IAccount.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <inheritdoc cref="IAccount.Name"/>
-    public string Name { get; } = null!;
+    public required string Name { get; set; }
 
     /// <inheritdoc cref="IAccount.Type"/>
-    public AccountType Type { get; }
+    public required AccountType Type { get; set; }
 
     /// <summary>
     /// Navigation to the child Account Balances
     /// </summary>
-    public ICollection<AccountBalance> AccountBalances { get; } = null!;
+    public required ICollection<AccountBalance> AccountBalances { get; set; }
 
     /// <summary>
     /// Navigation to the child Account Mappings
     /// </summary>
-    public ICollection<AccountMapping> AccountMappings { get; } = null!;
+    public required ICollection<AccountMapping> AccountMappings { get; set; }
 
     #endregion
 

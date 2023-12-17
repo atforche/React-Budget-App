@@ -12,31 +12,31 @@ public class AccountMapping
     #region Properties
 
     /// <inheritdoc cref="IAccountMapping.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <summary>
     /// Navigation to the parent Account
     /// </summary>
-    public Account Account { get; } = null!;
+    public required Account Account { get; set; }
 
     /// <summary>
     /// Navigation to the parent Month
     /// </summary>
-    public Month Month { get; } = null!;
+    public required Month Month { get; set; }
 
     /// <inheritdoc cref="IAccountMapping.StartingBalance"/>
-    public decimal StartingBalance { get; }
+    public required decimal StartingBalance { get; set; }
 
     /// <summary>
     /// Navigation to the related Budget
     /// </summary>
-    public Budget? Budget { get; } = null!;
+    public Budget? Budget { get; set; }
 
     /// <inheritdoc cref="IAccountMapping.BudgetType"/>
-    public BudgetType? BudgetType { get; }
+    public BudgetType? BudgetType { get; set; }
 
     /// <inheritdoc cref="IAccountMapping.IsDefault"/>
-    public bool IsDefault { get; }
+    public required bool IsDefault { get; set; }
 
     /// <summary>
     /// Navigation to the related Override Incomes
@@ -45,7 +45,7 @@ public class AccountMapping
     /// This navigation only maps to Incomes that specify this Account Mapping as their override mapping. This
     /// is the case when an Income amount should be credited to an account other than the default spend account.
     /// </remark>
-    public ICollection<Income> OverrideIncomes { get; } = null!;
+    public required ICollection<Income> OverrideIncomes { get; set; }
 
     /// <summary>
     /// Navigation to the related Credit Card Transactions.
@@ -55,7 +55,7 @@ public class AccountMapping
     /// account mapping to indicate the transaction amount was placed on this credit card.
     /// This collection should always be empty if this is a non-credit card Account Mapping.
     /// </remark>
-    public ICollection<Transaction> CreditCardTransactions { get; } = null!;
+    public required ICollection<Transaction> CreditCardTransactions { get; set; }
 
     /// <summary>
     /// Navigation to the related Override Transaction Applications
@@ -66,7 +66,7 @@ public class AccountMapping
     /// If IsDefault is true, this collection should always be empty since an override isn't needed to 
     /// use this mapping. 
     /// </remarks>
-    public ICollection<TransactionApplication> OverrideTransactionApplications { get; } = null!;
+    public required ICollection<TransactionApplication> OverrideTransactionApplications { get; set; }
 
     #endregion
 

@@ -11,43 +11,43 @@ public class Month
     #region Properties
 
     /// <inheritdoc cref="IMonth.Id"/>
-    public long Id { get; set; }
+    public required long Id { get; set; }
 
     /// <inheritdoc cref="IMonth.Year"/>
-    public int Year { get; }
+    public required int Year { get; set; }
 
     /// <inheritdoc cref="IMonth.MonthNumber"/>
-    public int MonthNumber { get; }
+    public required int MonthNumber { get; set; }
 
     /// <summary>
     /// Navigation to the child Budgets
     /// </summary>
-    public ICollection<Budget> Budgets { get; } = null!;
+    public required ICollection<Budget> Budgets { get; set; }
 
     /// <summary>
     /// Navigation to the child Account Mappings
     /// </summary>
-    public ICollection<AccountMapping> AccountMappings { get; } = null!;
+    public required ICollection<AccountMapping> AccountMappings { get; set; }
 
     /// <summary>
     /// Navigation to the child Transactions
     /// </summary>
-    public ICollection<Transaction> Transactions { get; } = null!;
+    public required ICollection<Transaction> Transactions { get; set; }
 
     /// <summary>
     /// Navigation to the child Employer Income Rates
     /// </summary>
-    public ICollection<EmployerIncomeRate> EmployerIncomeRates { get; } = null!;
+    public required ICollection<EmployerIncomeRate> EmployerIncomeRates { get; set; }
 
     /// <summary>
     /// Navigation to the child Incomes
     /// </summary>
-    public ICollection<Income> Incomes { get; } = null!;
+    public required ICollection<Income> Incomes { get; set; }
 
     /// <summary>
     /// Navigation to the child Account Balances
     /// </summary>
-    public ICollection<AccountBalance> AccountBalances { get; } = null!;
+    public required ICollection<AccountBalance> AccountBalances { get; set; }
 
     #endregion
 
