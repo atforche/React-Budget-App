@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
-using Models;
+using Models.Attributes;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 
@@ -155,8 +155,8 @@ public class ExcelHelperBase(XSSFWorkbook excelWorkbook)
     /// <param name="type">Type whose data is stored in the table</param>
     /// <param name="parentType">If the type appears on multiple tables, the parent type to disambiguate
     /// which table name to retrieve</param>
-    protected static string GetExcelTableName(Type type, DateTime? month = null, Type? parentType = null) =>
-        GetActualTableName(GetExcelTables(type).First(table => table.ParentType == parentType).TableName, month);
+    protected static string GetExcelTableName(Type type, DateTime? month = null) =>
+        GetActualTableName(GetExcelTables(type).Single().TableName, month);
 
     /// <summary>
     /// Gets the Excel Column attributes for the provided type.

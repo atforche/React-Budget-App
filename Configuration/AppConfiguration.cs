@@ -3,7 +3,7 @@ using System.Text.Json;
 namespace Configuration;
 
 /// <summary>
-/// Static class used to access different configuration settings about the currently running application context
+/// Static class used to access different configuration settings about the currently running application context.
 /// </summary>
 public static class AppConfiguration
 {
