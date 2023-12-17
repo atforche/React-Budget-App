@@ -11,14 +11,14 @@
         "Test": "React Budget API Test",
         "Published": "React Budget API Published"
     },
+        "RestApiUrl":
+    {
+        "Test": "http://localhost",
+        "Published": "http://localhost"
+    },
     "RestApiPort":
     {
         "Test": 5005,
         "Published": 5000
-    },
-    "RestApiUrl":
-    {
-        "Test": "http://localhost",
-        "Published": "http://localhost"
     }
 }
