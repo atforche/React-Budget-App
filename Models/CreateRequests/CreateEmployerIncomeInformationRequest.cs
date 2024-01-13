@@ -14,35 +14,35 @@ public interface ICreateEmployerIncomeInformationRequest
     /// The parent <see cref="IIncome.Id"/> or <see cref="ICreateIncomeRequest.Id"/>
     /// If null and this request falls under a <see cref="ICreateIncomeRequest"/>, the value will be inferred.
     /// </summary>
-    long? IncomeId { get; }
+    long? IncomeId { get; init; }
 
     /// <summary>
     /// The parent <see cref="IEmployerIncomeRate.Id"/> or <see cref="ICreateEmployerIncomeRateRequest.Id"/>
     /// If null and this request falls under a <see cref="ICreateEmployerIncomeRateRequest"/>, the value will be 
     /// inferred.
     /// </summary>
-    long? EmployerIncomeRateId { get; }
+    long? EmployerIncomeRateId { get; init; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.SalaryIncome"/>
-    decimal SalaryIncome { get; }
+    decimal SalaryIncome { get; init; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.AdditionalTaxableIncome"/>
-    decimal AdditionalTaxableIncome { get; }
+    decimal AdditionalTaxableIncome { get; init; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.RetirementContributionAmount"/>
-    decimal RetirementContributionAmount { get; }
+    decimal RetirementContributionAmount { get; init; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.PensionContributionAmount"/>
-    decimal PensionContributionAmount { get; }
+    decimal PensionContributionAmount { get; init; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.PreTaxDeductionAmount"/>
-    decimal PreTaxDeductionAmount { get; }
+    decimal PreTaxDeductionAmount { get; init; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.TaxWithholdingAmount"/>
-    decimal TaxWithholdingAmount { get; }
+    decimal TaxWithholdingAmount { get; init; }
 
     /// <inheritdoc cref="IEmployerIncomeInformation.PostTaxDeductionAmount"/>
-    decimal PostTaxDeductionAmount { get; }
+    decimal PostTaxDeductionAmount { get; init; }
 }
 
 public record CreateEmployerIncomeInformationRequest : CreateRequestBase, ICreateEmployerIncomeInformationRequest

@@ -16,23 +16,23 @@ public interface ICreateBudgetRequest
     /// The parent <see cref="IMonth.Id"/> or <see cref="ICreateMonthRequest.Id"/>
     /// If null, this request must fall under a <see cref="ICreateMonthRequest"/> and the value will be inferred.
     /// </summary>
-    long? MonthId { get; }
+    long? MonthId { get; init; }
 
     /// <inheritdoc cref="IBudget.Name"/>
-    string Name { get; }
+    string Name { get; init; }
 
     /// <inheritdoc cref="IBudget.Type"/>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    BudgetType Type { get; }
+    BudgetType Type { get; init; }
 
     /// <inheritdoc cref="IBudget.Amount"/>
-    decimal Amount { get; }
+    decimal Amount { get; init; }
 
     /// <inheritdoc cref="IBudget.RolloverAmount"/>
-    decimal? RolloverAmount { get; }
+    decimal? RolloverAmount { get; init; }
 
     /// <inheritdoc cref="IBudget.IsRolloverAmountOverridden"/>
-    bool? IsRolloverAmountOverridden { get; }
+    bool? IsRolloverAmountOverridden { get; init; }
 }
 
 /// <summary>

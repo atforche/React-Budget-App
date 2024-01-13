@@ -11,7 +11,7 @@ public interface ICreateEmployerRequest
     long Id { get; }
 
     /// <inheritdoc cref="IEmployer.Name"/>
-    string Name { get; }
+    string Name { get; init; }
 }
 
 /// <summary>

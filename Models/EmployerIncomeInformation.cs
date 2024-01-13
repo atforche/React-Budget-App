@@ -5,8 +5,8 @@ namespace Models;
 /// <summary>
 /// Read-only interface representing an Employer Income Information.
 /// </summary>
-[ExcelTable("EmployerIncomeRates.{Month}")]
-[ExcelTable("Incomes.{Month}")]
+[ExcelTable("EmployerIncomeRates.{Month}", parentType: typeof(IEmployerIncomeRate))]
+[ExcelTable("Incomes.{Month}", parentType: typeof(IIncome))]
 public interface IEmployerIncomeInformation
 {
     /// <summary>

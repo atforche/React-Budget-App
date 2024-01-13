@@ -5,7 +5,7 @@ namespace Models;
 /// <summary>
 /// Read-only interface representing an Employer.
 /// </summary>
-[ExcelTable("Employers", false)]
+[ExcelTable("Employers", true)]
 public interface IEmployer
 {
     /// <summary>

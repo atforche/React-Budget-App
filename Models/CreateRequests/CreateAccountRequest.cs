@@ -13,11 +13,11 @@ public interface ICreateAccountRequest
     long Id { get; }
 
     /// <inheritdoc cref="IAccount.Name"/>
-    string Name { get; }
+    string Name { get; init; }
 
     /// <inheritdoc cref="IAccount.Type"/>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    AccountType Type { get; }
+    AccountType Type { get; init; }
 }
 
 /// <summary>

@@ -67,6 +67,7 @@ public interface ITransaction
     /// <summary>
     /// Child Transaction Applications
     /// </summary>
+    [ExcelChildModel]
     ICollection<ITransactionApplication> TransactionApplications { get; }
 }
 

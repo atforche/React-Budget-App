@@ -9,4 +9,10 @@
         <!-- Override the publish directory for publishing the solution -->
         <PublishDir>..\Build\publish\$(MSBuildProjectName)</PublishDir>
     </PropertyGroup>
+
+    <!-- Enable code analysis on all projects (TODO) -->
+    <!-- <PropertyGroup>
+        <AnalysisMode>All</AnalysisMode>
+        <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+    </PropertyGroup> -->
 </Project>

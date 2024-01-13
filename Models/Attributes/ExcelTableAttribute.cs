@@ -4,7 +4,7 @@ namespace Models.Attributes;
 /// Excel Table annotation used to designate entity classes that map to Excel tables.
 /// </summary>
 [AttributeUsage(AttributeTargets.Interface, AllowMultiple = true)]
-public class ExcelTableAttribute(string tableName, bool isMonthly = true) : Attribute
+public class ExcelTableAttribute(string tableName, bool isSetup = false, Type? parentType = null) : Attribute
 {
     #region Properties
 
@@ -14,9 +14,15 @@ public class ExcelTableAttribute(string tableName, bool isMonthly = true) : Attr
     public string TableName { get; init; } = tableName;
 
     /// <summary>
-    /// True if this entity represents monthly data, false if this entity represents setup data
+    /// True if this entity represents setup data, false if this entity represents monthly data
     /// </summary>
-    public bool IsMonthly { get; init; } = isMonthly;
+    public bool IsSetup { get; init; } = isSetup;
+
+    /// <summary>
+    /// The parent entity of this model class if this model appears on the same Excel table as 
+    /// its parent, null otherwise
+    /// </summary>
+    public Type? ParentType { get; init; } = parentType;
 
     #endregion
     #region Methods

@@ -11,28 +11,28 @@ public interface ICreateMonthRequest
     long Id { get; }
 
     /// <inheritdoc cref="IMonth.Year"/>
-    int Year { get; }
+    int Year { get; init; }
 
     /// <inheritdoc cref="IMonth.MonthNumber"/>
-    int MonthNumber { get; }
+    int MonthNumber { get; init; }
 
     /// <inheritdoc cref="IMonth.Budgets"/>
-    ICollection<ICreateBudgetRequest> Budgets { get; }
+    ICollection<ICreateBudgetRequest> Budgets { get; init; }
 
     /// <inheritdoc cref="IMonth.AccountMappings"/>
-    ICollection<ICreateAccountMappingRequest> AccountMappings { get; }
+    ICollection<ICreateAccountMappingRequest> AccountMappings { get; init; }
 
     /// <inheritdoc cref="IMonth.Transactions"/>
-    ICollection<ICreateTransactionRequest> Transactions { get; }
+    ICollection<ICreateTransactionRequest> Transactions { get; init; }
 
     /// <inheritdoc cref="IMonth.Incomes"/>
-    ICollection<ICreateIncomeRequest> Incomes { get; }
+    ICollection<ICreateIncomeRequest> Incomes { get; init; }
 
     /// <inheritdoc cref="IMonth.EmployerIncomeRates"/>
-    ICollection<ICreateEmployerIncomeRateRequest> EmployerIncomeRates { get; }
+    ICollection<ICreateEmployerIncomeRateRequest> EmployerIncomeRates { get; init; }
 
     /// <inheritdoc cref="IMonth.AccountBalances"/>
-    ICollection<ICreateAccountBalanceRequest> AccountBalances { get; }
+    ICollection<ICreateAccountBalanceRequest> AccountBalances { get; init; }
 }
 
 /// <summary>

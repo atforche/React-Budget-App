@@ -13,19 +13,19 @@ public interface ICreateAccountBalanceRequest
     /// <summary>
     /// The parent <see cref="IAccount.Id"/> or <see cref="ICreateAccountRequest.Id"/>
     /// </summary>
-    long AccountId { get; }
+    long AccountId { get; init; }
 
     /// <summary>
     /// The parent <see cref="IMonth.Id"/> or <see cref="ICreateMonthRequest.Id"/>
     /// If null, this request must fall under a <see cref="ICreateMonthRequest"/> and the value will be inferred.
     /// </summary>
-    long? MonthId { get; }
+    long? MonthId { get; init; }
 
     /// <inheritdoc cref="IAccountBalance.Date"/>
-    DateTime Date { get; }
+    DateTime Date { get; init; }
 
     /// <inheritdoc cref="IAccountBalance.Amount"/>
-    decimal Amount { get; }
+    decimal Amount { get; init; }
 }
 
 /// <summary>

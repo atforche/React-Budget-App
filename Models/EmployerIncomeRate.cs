@@ -27,6 +27,7 @@ public interface IEmployerIncomeRate
     /// <summary>
     /// Child Employer Income Information
     /// </summary>
+    [ExcelChildModel(true)]
     IEmployerIncomeInformation EmployerIncomeInformation { get; }
 }
 

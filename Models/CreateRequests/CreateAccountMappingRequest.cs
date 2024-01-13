@@ -15,28 +15,28 @@ public interface ICreateAccountMappingRequest
     /// <summary>
     /// The parent <see cref="IAccount.Id"/> or <see cref="ICreateAccountRequest.Id"/>
     /// </summary>
-    long AccountId { get; }
+    long AccountId { get; init; }
 
     /// <summary>
     /// The parent <see cref="IMonth.Id"/> or <see cref="ICreateMonthRequest.Id"/>
     /// If null, this request must fall under a <see cref="ICreateMonthRequest"/> and the value will be inferred.
     /// </summary>
-    long? MonthId { get; }
+    long? MonthId { get; init; }
 
     /// <inheritdoc cref="IAccountMapping.StartingBalance"/>
-    decimal StartingBalance { get; }
+    decimal StartingBalance { get; init; }
 
     /// <summary>
     /// The related <see cref="IBudget.Id"/> or <see cref="ICreateBudgetRequest.Id"/>
     /// </summary>
-    long? BudgetId { get; }
+    long? BudgetId { get; init; }
 
     /// <inheritdoc cref="IAccountMapping.BudgetType"/>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    BudgetType? BudgetType { get; }
+    BudgetType? BudgetType { get; init; }
 
     /// <inheritdoc cref="IAccountMapping.IsDefault"/>
-    bool IsDefault { get; }
+    bool IsDefault { get; init; }
 }
 
 /// <summary>

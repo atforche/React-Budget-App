@@ -16,31 +16,31 @@ public interface ICreateTransactionRequest
     /// The parent <see cref="IMonth.Id"/> or <see cref="ICreateMonthRequest.Id"/>
     /// If null, this request must fall under a <see cref="ICreateMonthRequest"/> and the value will be inferred.
     /// </summary>
-    long? MonthId { get; }
+    long? MonthId { get; init; }
 
     /// <inheritdoc cref="ITransaction.Date"/>
-    DateTime Date { get; }
+    DateTime Date { get; init; }
 
     /// <inheritdoc cref="ITransaction.Location"/>
-    string Location { get; }
+    string Location { get; init; }
 
     /// <inheritdoc cref="ITransaction.Type"/>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    TransactionType Type { get; }
+    TransactionType Type { get; init; }
 
     /// <inheritdoc cref="ITransaction.Amount"/>
-    decimal Amount { get; }
+    decimal Amount { get; init; }
 
     /// <summary>
     /// The related <see cref="IAccount.Id"/> or <see cref="ICreateAccountRequest.Id"/>
     /// </summary>
-    long? CreditCardAccountId { get; }
+    long? CreditCardAccountId { get; init; }
 
     /// <inheritdoc cref="ITransaction.PaidOffDate"/>
-    DateTime? PaidOffDate { get; }
+    DateTime? PaidOffDate { get; init; }
 
     /// <inheritdoc cref="ITransaction.TransactionApplications"/>
-    ICollection<ICreateTransactionApplicationRequest> CreateTransactionApplicationRequests { get; }
+    ICollection<ICreateTransactionApplicationRequest> TransactionApplications { get; init; }
 }
 
 /// <summary>
@@ -70,5 +70,5 @@ public record CreateTransactionRequest : CreateRequestBase, ICreateTransactionRe
     public DateTime? PaidOffDate { get; init; }
 
     /// <inheritdoc/>
-    public required ICollection<ICreateTransactionApplicationRequest> CreateTransactionApplicationRequests { get; init; }
+    public required ICollection<ICreateTransactionApplicationRequest> TransactionApplications { get; init; }
 }

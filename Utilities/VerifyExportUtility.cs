@@ -1,4 +1,4 @@
-namespace BudgetUtilities;
+namespace Utilities;
 
 /// <summary>
 /// Class that manages verifying an exported file against the current database state.

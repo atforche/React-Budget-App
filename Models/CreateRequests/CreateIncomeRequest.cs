@@ -14,29 +14,29 @@ public interface ICreateIncomeRequest
     /// The parent <see cref="IMonth.Id"/> or <see cref="ICreateMonthRequest.Id"/>
     /// If null, this request must fall under a <see cref="ICreateMonthRequest"/> and the value will be inferred.
     /// </summary>
-    long? MonthId { get; }
+    long? MonthId { get; init; }
 
     /// <summary>
     /// The parent <see cref="IEmployer.Id"/> or <see cref="ICreateEmployerRequest.Id"/>
     /// </summary>
-    long? EmployerId { get; }
+    long? EmployerId { get; init; }
 
     /// <inheritdoc cref="IIncome.Date"/>
-    DateTime Date { get; }
+    DateTime Date { get; init; }
 
     /// <inheritdoc cref="IIncome.Amount"/>
-    decimal Amount { get; }
+    decimal Amount { get; init; }
 
     /// <inheritdoc cref="IIncome.Description"/>
-    string Description { get; }
+    string Description { get; init; }
 
     /// <summary>
     /// The related <see cref="IAccountMapping.Id"/> or <see cref="ICreateAccountMappingRequest.Id"/>
     /// </summary>
-    long? OverrideAccountMappingId { get; }
+    long? OverrideAccountMappingId { get; init; }
 
     /// <inheritdoc cref="IIncome.EmployerIncomeInformation"/>
-    ICreateEmployerIncomeInformationRequest? CreateEmployerIncomeInformationRequest { get; }
+    ICreateEmployerIncomeInformationRequest? EmployerIncomeInformation { get; init; }
 }
 
 /// <summary>
@@ -63,5 +63,5 @@ public record CreateIncomeRequest : CreateRequestBase, ICreateIncomeRequest
     public long? OverrideAccountMappingId { get; init; }
 
     /// <inheritdoc/>
-    public ICreateEmployerIncomeInformationRequest? CreateEmployerIncomeInformationRequest { get; init; }
+    public ICreateEmployerIncomeInformationRequest? EmployerIncomeInformation { get; init; }
 }

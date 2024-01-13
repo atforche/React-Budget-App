@@ -6,7 +6,7 @@ namespace Models;
 /// <summary>
 /// Read-only interface representing an Account.
 /// </summary>
-[ExcelTable("Accounts", false)]
+[ExcelTable("Accounts", true)]
 public interface IAccount
 {
     /// <summary>

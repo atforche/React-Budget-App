@@ -13,16 +13,16 @@ public interface ICreateEmployerIncomeRateRequest
     /// <summary>
     /// The parent <see cref="IEmployer.Id"/> or <see cref="ICreateEmployerRequest.Id"/>
     /// </summary>
-    long EmployerId { get; }
+    long EmployerId { get; init; }
 
     /// <summary>
     /// The parent <see cref="IMonth.Id"/> or <see cref="ICreateMonthRequest.Id"/>
     /// If null, this request must fall under a <see cref="ICreateMonthRequest"/> and the value will be inferred.
     /// </summary>
-    long? MonthId { get; }
+    long? MonthId { get; init; }
 
     /// <inheritdoc cref="IEmployerIncomeRate.EmployerIncomeInformation"/>
-    ICreateEmployerIncomeInformationRequest CreateEmployerIncomeInformationRequest { get; }
+    ICreateEmployerIncomeInformationRequest EmployerIncomeInformation { get; init; }
 }
 
 /// <summary>
@@ -37,5 +37,5 @@ public record CreateEmployerIncomeRateRequest : CreateRequestBase, ICreateEmploy
     public long? MonthId { get; init; }
 
     /// <inheritdoc/>
-    public required ICreateEmployerIncomeInformationRequest CreateEmployerIncomeInformationRequest { get; init; }
+    public required ICreateEmployerIncomeInformationRequest EmployerIncomeInformation { get; init; }
 }

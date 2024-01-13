@@ -16,25 +16,25 @@ public interface ICreateTransactionApplicationRequest
     /// The parent <see cref="ITransaction.Id"/> or <see cref="ICreateTransactionRequest.Id"/>
     /// If null, this request must fall under a <see cref="ICreateTransactionRequest"/> and the value will be inferred.
     /// </summary>
-    long? TransactionId { get; }
+    long? TransactionId { get; init; }
 
     /// <inheritdoc cref="ITransactionApplication.Type"/>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    ApplicationType Type { get; }
+    ApplicationType Type { get; init; }
 
     /// <inheritdoc cref="ITransactionApplication.Description"/>
-    string Description { get; }
+    string Description { get; init; }
 
     /// <inheritdoc cref="ITransactionApplication.Amount"/>
-    decimal Amount { get; }
+    decimal Amount { get; init; }
 
     /// <inheritdoc cref="ITransactionApplication.BudgetId"/>
-    long BudgetId { get; }
+    long BudgetId { get; init; }
 
     /// <summary>
     /// The related <see cref="IAccount.Id"/> or <see cref="ICreateAccountRequest.Id"/>
     /// </summary>
-    long? OverrideAccountMappingId { get; }
+    long? OverrideAccountMappingId { get; init; }
 }
 
 /// <summary>

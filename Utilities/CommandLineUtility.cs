@@ -1,12 +1,9 @@
 ﻿using System.CommandLine;
 
-namespace BudgetUtilities;
+namespace Utilities;
 
 /// <summary>
-/// Helper class to manage command line input. Supports importing data
-/// from an Excel sheet into the SQL database, exporting data from the SQL
-/// database into an Excel sheet, verifying an exported Excel sheet,
-/// and uploading a backup file to OneDrive.
+/// Helper class to manage command line input.
 /// </summary>
 public class CommandLineUtility
 {
@@ -22,7 +19,7 @@ public class CommandLineUtility
     }
 
     /// <summary>
-    /// Configures the command line arguments and sets the appropriate handlers.
+    /// Configures the command line arguments and sets the appropriate handlers
     /// </summary>
     /// <returns>A RootCommand object configured to handle command line input</returns>
     private static RootCommand ConfigureCommandLineArguments()

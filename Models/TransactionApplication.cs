@@ -6,7 +6,7 @@ namespace Models;
 /// <summary>
 /// Read-only interface representing a Transaction Application.
 /// </summary>
-[ExcelTable("Transactions.{Month}")]
+[ExcelTable("Transactions.{Month}", parentType: typeof(ITransaction))]
 public interface ITransactionApplication
 {
     /// <summary>
