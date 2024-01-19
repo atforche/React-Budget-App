@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Models.CreateRequests;
 
 /// <summary>
@@ -16,7 +14,6 @@ public interface ICreateAccountRequest
     string Name { get; init; }
 
     /// <inheritdoc cref="IAccount.Type"/>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     AccountType Type { get; init; }
 }
 

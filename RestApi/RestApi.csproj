@@ -1,11 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <!-- C# Language Stuff -->
   <PropertyGroup>
+    <!-- C# Language Stuff -->
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+    <!-- Local Project References -->
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj"/>
+  </ItemGroup>
 
   <!-- Nuget Package References -->
   <ItemGroup>

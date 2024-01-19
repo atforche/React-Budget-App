@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Models.Attributes;
 
 namespace Models;
@@ -24,7 +23,6 @@ public interface IAccount
     /// Type of the Account
     /// </summary>
     [ExcelColumn("Type", typeof(string))]
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     AccountType Type { get; }
 }
 

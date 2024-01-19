@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Models.Attributes;
 
 namespace Models;
@@ -49,7 +48,6 @@ public interface IAccountMapping
     /// Only one of the BudgetType and Budget may be provided for a regular Account Mapping.
     /// </remarks>
     [ExcelColumn("Budget Type", typeof(string), true)]
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     BudgetType? BudgetType { get; }
 
     /// <summary>

@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Models.ChangeRequests;
 
 /// <summary>
@@ -17,7 +15,6 @@ public interface IChangeAccountMappingRequest
     long? BudgetId { get; }
 
     /// <inheritdoc cref="IAccountMapping.BudgetType"/>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     BudgetType? BudgetType { get; }
 
     /// <inheritdoc cref="IAccountMapping.IsDefault"/>

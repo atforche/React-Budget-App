@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Models.CreateRequests;
 
 /// <summary>
@@ -25,7 +23,6 @@ public interface ICreateTransactionRequest
     string Location { get; init; }
 
     /// <inheritdoc cref="ITransaction.Type"/>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     TransactionType Type { get; init; }
 
     /// <inheritdoc cref="ITransaction.Amount"/>

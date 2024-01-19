@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Models.ChangeRequests;
 
 /// <summary>
@@ -11,7 +9,6 @@ public interface IChangeTransactionApplicationRequest
     long Id { get; }
 
     /// <inheritdoc cref="ITransactionApplication.Type"/>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     ApplicationType Type { get; }
 
     /// <inheritdoc cref="ITransactionApplication.Description"/>

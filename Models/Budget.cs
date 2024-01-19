@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Models.Attributes;
 
 namespace Models;
@@ -29,7 +28,6 @@ public interface IBudget
     /// Type of the Budget
     /// </summary>
     [ExcelColumn("Type", typeof(string))]
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     BudgetType Type { get; }
 
     /// <summary>

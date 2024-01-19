@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Models.Attributes;
 
 namespace Models;
@@ -23,7 +22,6 @@ public interface ITransactionApplication
     /// Type of the Transaction Application
     /// </summary>
     [ExcelColumn("Type", typeof(string))]
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     ApplicationType Type { get; }
 
     /// <summary>

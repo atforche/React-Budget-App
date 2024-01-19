@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Models.CreateRequests;
 
 /// <summary>
@@ -32,7 +30,6 @@ public interface ICreateAccountMappingRequest
     long? BudgetId { get; init; }
 
     /// <inheritdoc cref="IAccountMapping.BudgetType"/>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     BudgetType? BudgetType { get; init; }
 
     /// <inheritdoc cref="IAccountMapping.IsDefault"/>

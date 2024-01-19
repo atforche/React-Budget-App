@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Models.ChangeRequests;
 
 /// <summary>
@@ -14,7 +12,6 @@ public interface IChangeBudgetRequest
     string Name { get; }
 
     /// <inheritdoc cref="IBudget.Type"/>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     BudgetType Type { get; }
 
     /// <inheritdoc cref="IBudget.Amount"/>

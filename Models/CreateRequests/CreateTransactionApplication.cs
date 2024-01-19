@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Models.CreateRequests;
 
 /// <summary>
@@ -19,7 +17,6 @@ public interface ICreateTransactionApplicationRequest
     long? TransactionId { get; init; }
 
     /// <inheritdoc cref="ITransactionApplication.Type"/>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     ApplicationType Type { get; init; }
 
     /// <inheritdoc cref="ITransactionApplication.Description"/>

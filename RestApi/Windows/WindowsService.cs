@@ -3,7 +3,7 @@ namespace RestApi.WindowsService;
 /// <summary>
 /// Background Service class that allows the REST API to be hosted in a Windows service
 /// </summary>
-public class WindowsService : BackgroundService
+public class WindowsService(ILoggerFactory loggerFactory) : BackgroundService
 {
     #region Fields
 
@@ -19,19 +19,10 @@ public class WindowsService : BackgroundService
     /// <summary>
     /// Logger for this service
     /// </summary>
-    public ILogger Logger { get; }
+    public ILogger Logger { get; } = loggerFactory.CreateLogger<WindowsService>();
 
     #endregion
-
     #region Methods
-
-    /// <summary>
-    /// Constructs a new instance of this class
-    /// </summary>
-    public WindowsService(ILoggerFactory loggerFactory)
-    {
-        Logger = loggerFactory.CreateLogger<WindowsService>();
-    }
 
     /// <inheritdoc/>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
